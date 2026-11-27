@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>東漢食補 名片｜設計示意</title>
+<style>
+  @page{size:174mm 54mm; margin:0;}
+  :root{--paper:#F5EDDC;--ink:#211D19;--red:#A32B20;--gold:#B08D3F;--brown:#5C3B24;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#2b2b2b;font-family:"Microsoft JhengHei",sans-serif;display:flex;gap:8mm;padding:10mm;-webkit-font-smoothing:antialiased;}
+  .kai{font-family:"DFKai-SB","標楷體",serif;}
+  .card{
+    width:90mm;height:54mm;background:var(--paper);position:relative;overflow:hidden;
+    box-shadow:0 4mm 10mm rgba(0,0,0,.5);flex:none;color:var(--ink);
+  }
+  .card::before{content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(90% 70% at 15% 0%, rgba(255,255,255,.6), transparent 60%),
+      radial-gradient(70% 60% at 90% 110%, rgba(160,120,60,.18), transparent 70%),
+      repeating-linear-gradient(0deg, rgba(120,90,50,.05) 0 1px, transparent 1px 3px);}
+  .frame{position:absolute;inset:4mm;border:.25mm solid rgba(163,43,32,.4);}
+  /* 正面 */
+  .f-top{position:absolute;left:8mm;top:8mm;display:flex;gap:4mm;align-items:center;}
+  .f-top img{width:16mm;}
+  .brand{font-size:6.6mm;letter-spacing:.16em;line-height:1;}
+  .brand small{display:block;font-size:1.85mm;letter-spacing:.3em;color:var(--red);margin-top:1.6mm;font-family:Georgia,serif;}
+  .motto{position:absolute;right:10mm;top:11mm;writing-mode:vertical-rl;font-size:4.2mm;letter-spacing:.3em;color:var(--brown);height:24mm;}
+  .name{position:absolute;left:8mm;bottom:8.5mm;}
+  .name b{font-size:7.4mm;letter-spacing:.22em;font-weight:400;}
+  .name span{font-size:2.2mm;letter-spacing:.24em;color:#6b5844;margin-left:3mm;}
+  .name .line{width:26mm;height:.25mm;background:var(--red);margin-top:2mm;opacity:.6;}
+  .seal{position:absolute;right:9mm;bottom:8mm;width:9mm;height:9mm;border:.7mm solid var(--red);color:var(--red);
+        font-size:4.2mm;display:flex;align-items:center;justify-content:center;letter-spacing:0;}
+
+  /* 背面 */
+  .b-left{position:absolute;left:8.5mm;top:10mm;width:29mm;}
+  .b-left .row{margin-bottom:3.4mm;}
+  .b-left .row b{font-size:4.1mm;letter-spacing:.06em;font-weight:400;display:block;line-height:1.15;}
+  .b-left .row span{font-size:1.55mm;letter-spacing:.2em;color:var(--red);font-family:Georgia,serif;display:block;margin-top:.8mm;}
+  .b-left .tip{font-size:1.85mm;color:#6b5844;letter-spacing:.04em;line-height:1.7;margin-top:4mm;padding-top:2mm;border-top:.2mm solid rgba(92,59,36,.25);}
+  .b-right{position:absolute;right:8.5mm;top:9mm;width:45mm;}
+  .b-right .l{display:flex;gap:1.6mm;font-size:1.95mm;line-height:1.55;letter-spacing:.02em;color:#3f3226;margin-bottom:1.5mm;}
+  .b-right .l em{font-style:normal;color:#8a765c;letter-spacing:.12em;font-size:1.7mm;width:6.6mm;flex:none;}
+  .b-right .l span{flex:1;}
+  .b-right .en{font-size:1.45mm;letter-spacing:.2em;color:#9a8874;font-family:Georgia,serif;margin-top:2mm;}
+  .qr{position:absolute;right:9mm;bottom:8mm;width:12mm;height:12mm;border:.25mm dashed rgba(92,59,36,.5);
+      display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:2.8mm;color:rgba(92,59,36,.5);letter-spacing:.1em;}
+  .qr img{width:100%;height:100%;object-fit:contain;}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="frame"></div>
+  <div class="f-top">
+    <img src="assets/brand_mark_store.svg" alt="">
+    <div>
+      <div class="brand kai">東漢食補</div>
+      <small>D O N G H A N · S H I B U</small>
+    </div>
+  </div>
+  <div class="motto kai">暖一桌人</div>
+  <div class="name">
+    <b class="kai">周 家 宇</b>
+    <div class="line"></div>
+  </div>
+  <div class="seal kai">補</div>
+</div>
+
+<div class="card">
+  <div class="frame"></div>
+  <div class="b-left">
+    <div class="row"><b class="kai">紅燒羊肉爐</b><span>BRAISED LAMB</span></div>
+    <div class="row"><b class="kai">薑母鴨</b><span>GINGER DUCK</span></div>
+    <div class="row"><b class="kai">何首烏雞湯</b><span>HERB CHICKEN</span></div>
+    <div class="tip">冷凍調理包｜2 人份<br>加熱 10 分鐘上桌<br>8 包混搭免運・自取享團購價</div>
+  </div>
+  <div class="b-right">
+    <div class="l"><em>地址</em><span>新北市新莊區壽山路109-1號</span></div>
+    <div class="l"><em>電話</em><span>〔市話待補〕</span></div>
+    <div class="l"><em>行動</em><span>0989-322-205</span></div>
+    <div class="l"><em>LINE</em><span>〔待客戶提供〕</span></div>
+    <div class="l"><em>FB</em><span>東漢食補</span></div>
+    <div class="en">FROZEN · READY IN 10 MIN</div>
+  </div>
+  <div class="qr"><img src="assets/qr_placeholder.svg" alt="一頁式網頁 QRcode"></div>
+</div>
+
+</body>
+</html>

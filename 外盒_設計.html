@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>東漢食補 外盒包裝｜門市版設計示意</title>
+<style>
+  @page{size:297mm 210mm;margin:0;}
+  :root{--paper:#F5EDDC;--ink:#211D19;--red:#A32B20;--gold:#B08D3F;--brown:#5C3B24;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#2b2b2b;font-family:"Microsoft JhengHei",sans-serif;padding:10mm;-webkit-font-smoothing:antialiased;color:var(--ink);}
+  .kai{font-family:"DFKai-SB","標楷體",serif;}
+
+  /* ---------- 盒面 ---------- */
+  .face{
+    width:240mm;height:155mm;background:var(--paper);position:relative;overflow:hidden;
+    box-shadow:0 5mm 14mm rgba(0,0,0,.45);
+  }
+  .face::before{content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(120% 90% at 20% 0%, rgba(255,255,255,.6), transparent 62%),
+      radial-gradient(80% 70% at 95% 100%, rgba(160,120,60,.16), transparent 70%),
+      repeating-linear-gradient(0deg, rgba(120,90,50,.045) 0 1px, transparent 1px 3px);}
+  .frame{position:absolute;inset:7mm;border:.3mm solid rgba(163,43,32,.5);}
+  .photo{position:absolute;right:0;top:0;width:128mm;height:155mm;}
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:54% 42%;filter:saturate(.94) contrast(1.05);}
+  .photo::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(to right, var(--paper) 0%, rgba(245,237,220,.75) 9%, transparent 26%),
+               linear-gradient(to top, rgba(50,30,15,.25), transparent 40%);}
+
+  .mark{position:absolute;left:14mm;top:12mm;width:26mm;opacity:.95;}
+  .brand{position:absolute;left:46mm;top:15mm;font-size:6mm;letter-spacing:.2em;}
+  .brand small{display:block;font-size:1.9mm;letter-spacing:.34em;color:var(--red);margin-top:1.4mm;font-family:Georgia,serif;}
+
+  .pname{position:absolute;left:15mm;top:43mm;writing-mode:vertical-rl;font-size:13.6mm;letter-spacing:.1em;line-height:1.12;}
+  .pen{position:absolute;left:33mm;top:45mm;writing-mode:vertical-rl;font-size:1.9mm;letter-spacing:.34em;color:var(--brown);font-family:Georgia,serif;}
+  .psub{position:absolute;left:15mm;top:137mm;font-size:3.2mm;letter-spacing:.08em;color:#4c3c2c;}
+  .pline{position:absolute;left:15mm;top:131mm;width:38mm;height:.25mm;background:var(--red);opacity:.55;}
+  .seal{position:absolute;left:170mm;top:14mm;width:13mm;height:13mm;border:.8mm solid var(--red);color:var(--red);
+        font-size:6mm;display:flex;align-items:center;justify-content:center;background:rgba(245,237,220,.85);}
+  .strip{position:absolute;right:0;top:0;width:9mm;height:155mm;background:var(--red);color:#F7EEDC;
+        writing-mode:vertical-rl;font-size:3.2mm;letter-spacing:.42em;display:flex;align-items:center;justify-content:center;padding-top:14mm;}
+  .chips{position:absolute;left:15mm;top:124mm;display:flex;gap:1.6mm;}
+  .chips i{font-style:normal;font-size:2.3mm;border:.2mm solid rgba(163,43,32,.5);color:var(--red);padding:.8mm 2mm;letter-spacing:.08em;background:rgba(245,237,220,.7);}
+
+  /* 側面 85x155 */
+  .side{width:85mm;height:155mm;background:var(--paper);position:relative;overflow:hidden;box-shadow:0 4mm 10mm rgba(0,0,0,.4);}
+  .side .frame{inset:5mm;}
+  .side .mark{width:14mm;left:9mm;top:9mm;}
+  .side .t{position:absolute;left:9mm;top:30mm;font-size:5mm;letter-spacing:.16em;}
+  .side .b{position:absolute;left:9mm;top:41mm;font-size:1.7mm;letter-spacing:.2em;color:var(--red);font-family:Georgia,serif;}
+  .side .kv{position:absolute;left:9mm;right:9mm;bottom:21mm;font-size:1.9mm;line-height:1.75;color:#55432f;}
+  .side .bc{position:absolute;left:9mm;bottom:7mm;width:26mm;height:8mm;
+    background:repeating-linear-gradient(90deg,#211D19 0 1px,transparent 1px 1.6px);opacity:.7;}
+  .side .vname{position:absolute;right:8mm;top:26mm;writing-mode:vertical-rl;font-size:9mm;letter-spacing:.16em;line-height:1.1;}
+  .side .exp{position:absolute;right:9mm;bottom:7mm;font-size:1.8mm;letter-spacing:.06em;color:#55432f;text-align:right;}
+
+  h4.lab{font-size:3mm;letter-spacing:.2em;color:#e8dcc4;margin-bottom:3mm;font-weight:400;}
+
+  /* ---------- 3D ---------- */
+  .stage{width:520px;height:340px;perspective:1400px;margin:6mm auto 0;}
+  .box3d{width:240mm;height:155mm;transform-style:preserve-3d;transform:rotateX(-14deg) rotateY(-24deg) scale(.42);position:relative;left:60mm;top:60mm;}
+  .b-front,.b-side,.b-top{position:absolute;background:var(--paper);overflow:hidden;border:.2mm solid rgba(92,59,36,.25);}
+  .b-front{width:240mm;height:155mm;transform:translateZ(42.5mm);}
+  .b-side{width:85mm;height:155mm;left:240mm;transform:rotateY(90deg);transform-origin:left center;transform:rotateY(90deg) translateZ(0);}
+  .b-top{width:240mm;height:85mm;top:0;transform-origin:top center;transform:rotateX(90deg);filter:brightness(1.06);}
+  .b-front img{width:100%;height:100%;object-fit:cover;opacity:.98;}
+  .b-side{background:linear-gradient(90deg,rgba(0,0,0,.12),transparent 30%),var(--paper);}
+  .b-side .sv{position:absolute;left:10mm;top:20mm;writing-mode:vertical-rl;font-size:9mm;letter-spacing:.18em;}
+  .b-top{background:linear-gradient(135deg,#efe4cd,#e4d3b2);}
+  .b-top .tc{position:absolute;right:10mm;bottom:8mm;font-size:6mm;letter-spacing:.2em;opacity:.55;}
+</style>
+</head>
+<body>
+
+<h4 class="lab">A ｜ 正面 240 × 155 mm（1:1）</h4>
+<div class="face">
+  <div class="frame"></div>
+  <div class="photo"><img src="assets/processed/food_mutton_hd.jpg" alt=""></div>
+  <img class="mark" src="assets/brand_mark_store.svg" alt="">
+  <div class="brand kai">東漢食補<small>DONGHAN SHIBU · STORE</small></div>
+  <div class="seal kai">補</div>
+
+  <div class="pname kai">紅燒羊肉爐</div>
+  <div class="pen">BRAISED LAMB HOT POT</div>
+
+  <div class="chips"><i>2 人份</i><i>加熱 10 分鐘</i><i>冷凍 －18°C</i></div>
+  <div class="pline"></div>
+  <div class="psub kai">一鍋老方子，暖一桌人。</div>
+
+  <div class="strip">開封加熱・十分鐘上桌</div>
+</div>
+
+<h4 class="lab" style="margin-top:10mm">B ｜ 側面 85 × 155 mm（1:1）</h4>
+<div class="side">
+  <div class="frame"></div>
+  <img class="mark" src="assets/brand_mark_store.svg" alt="">
+  <div class="t kai">東漢食補</div>
+  <div class="b">FROZEN · READY IN 10 MIN</div>
+  <div class="vname kai">紅燒羊肉爐</div>
+  <div class="kv">
+    品名　紅燒羊肉爐（冷凍調理食品）<br>
+    內容量　1,200g（固形量 380g）<br>
+    原產地　台灣　保存 －18°C 以下 12 個月
+  </div>
+  <div class="bc"></div>
+</div>
+
+<style>
+  .net-wrap{width:258.4mm;height:123.5mm;overflow:hidden;background:#1e1e1e;}
+  .net-inner{transform:scale(.38);transform-origin:top left;width:680mm;height:325mm;display:flex;flex-direction:column;}
+  .nrow{display:flex;}
+  .np{border:.35mm dashed rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;
+      color:#e8dcc4;font-size:8mm;letter-spacing:.18em;background:#262626;position:relative;}
+  .np b{font-weight:400;font-size:5mm;letter-spacing:.06em;position:absolute;bottom:3mm;color:rgba(232,220,196,.55);}
+  .np.main{border-style:solid;border-color:rgba(163,43,32,.85);background:#2e2422;}
+
+  .carton{width:400mm;height:300mm;background:#C9B18B;position:relative;transform:scale(.45);transform-origin:top left;
+          box-shadow:0 6mm 16mm rgba(0,0,0,.45);}
+  .carton .cf{border:.4mm solid rgba(163,43,32,.6);position:absolute;inset:18mm;}
+  .carton .cn{position:absolute;left:26mm;top:26mm;font-size:34mm;letter-spacing:.14em;color:#8E241B;}
+  .carton .csub{position:absolute;left:28mm;top:74mm;font-size:9mm;letter-spacing:.5em;color:#3A2A1A;}
+  .carton .citem{position:absolute;left:28mm;top:92mm;font-size:8.5mm;letter-spacing:.14em;line-height:1.65;color:#2A2118;max-width:270mm;}
+  .carton .cqty{position:absolute;right:26mm;top:24mm;width:46mm;height:46mm;border:1.2mm solid #8E241B;color:#8E241B;
+        display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:9mm;letter-spacing:.1em;}
+  .carton .cqty span{font-size:4mm;letter-spacing:.3em;margin-top:1mm;}
+  .carton .cold{position:absolute;right:26mm;bottom:26mm;font-size:5mm;letter-spacing:.3em;color:#3A2A1A;text-align:right;line-height:2;}
+  .carton .co{position:absolute;left:28mm;bottom:24mm;font-size:4mm;letter-spacing:.06em;color:#3A2A1A;line-height:1.9;}
+  .carton .arrow{position:absolute;font-size:10mm;color:#3A2A1A;}
+</style>
+
+<h4 class="lab" style="margin-top:10mm">C ｜ 盒型展開圖（一體成型 · 糊盒）</h4>
+<div class="net-wrap">
+  <div class="net-inner">
+    <div class="nrow" style="height:85mm">
+      <div class="np" style="width:15mm"></div>
+      <div class="np" style="width:85mm">防塵翼</div>
+      <div class="np main" style="width:240mm">上蓋<b>240 × 85</b></div>
+      <div class="np" style="width:85mm">防塵翼</div>
+      <div class="np main" style="width:240mm">下蓋<b>240 × 85</b></div>
+      <div class="np" style="width:15mm"></div>
+    </div>
+    <div class="nrow" style="height:155mm">
+      <div class="np" style="width:15mm">糊</div>
+      <div class="np" style="width:85mm">側面<b>85 × 155</b></div>
+      <div class="np main" style="width:240mm">正面<b>240 × 155</b></div>
+      <div class="np" style="width:85mm">側面<b>85 × 155</b></div>
+      <div class="np main" style="width:240mm">背面<b>240 × 155</b></div>
+      <div class="np" style="width:15mm">糊</div>
+    </div>
+  </div>
+</div>
+
+<h4 class="lab" style="margin-top:10mm">D ｜ 團購外箱 8 入（400 × 300 × 200 mm · 單色印刷）</h4>
+<div style="width:180mm;height:135mm;overflow:hidden">
+  <div class="carton">
+    <div class="cf"></div>
+    <div class="cn kai">東漢食補</div>
+    <div class="csub">DONGHAN SHIBU</div>
+    <div class="citem kai">□ 紅燒羊肉爐　□ 薑母鴨<br>□ 何首烏雞湯　□ 8 入混搭</div>
+    <div class="cqty kai">8<span>入</span></div>
+    <div class="cold">－18°C 冷凍<br>此面向上　請勿重壓</div>
+    <div class="co">東漢食補　新北市新莊區壽山路109-1號　0989-322-205</div>
+  </div>
+</div>
+
+<h4 class="lab" style="margin-top:10mm">E ｜ 何首烏雞湯 正面 240 × 155 mm（1:1）</h4>
+<div class="face">
+  <div class="frame"></div>
+  <div class="photo"><img src="assets/processed/food_herb_chicken_hd.jpg" alt=""></div>
+  <img class="mark" src="assets/brand_mark_store.svg" alt="">
+  <div class="brand kai">東漢食補<small>DONGHAN SHIBU · STORE</small></div>
+  <div class="seal kai">補</div>
+  <div class="pname kai">何首烏雞湯</div>
+  <div class="pen">POLYGONUM CHICKEN SOUP</div>
+  <div class="chips"><i>純湯底・無肉塊</i><i>2 人份</i><i>冷凍 －18°C</i></div>
+  <div class="pline"></div>
+  <div class="psub kai">可自備半隻雞或雞腿肉入鍋同燉。</div>
+  <div class="strip">開封加熱・十分鐘上桌</div>
+</div>
+
+<h4 class="lab" style="margin-top:10mm">F ｜ 薑母鴨 正面 240 × 155 mm（1:1）</h4>
+<div class="face">
+  <div class="frame"></div>
+  <div class="photo"><img src="assets/processed/food_duck_hd.jpg" alt=""></div>
+  <img class="mark" src="assets/brand_mark_store.svg" alt="">
+  <div class="brand kai">東漢食補<small>DONGHAN SHIBU · STORE</small></div>
+  <div class="seal kai">溫</div>
+
+  <div class="pname kai">薑母鴨</div>
+  <div class="pen">GINGER DUCK SOUP</div>
+
+  <div class="chips"><i>2 人份</i><i>加熱 10 分鐘</i><i>冷凍 －18°C</i></div>
+  <div class="pline"></div>
+  <div class="psub kai">老薑麻油，辛香溫厚。</div>
+
+  <div class="strip">開封加熱・十分鐘上桌</div>
+</div>
+
+</body>
+</html>

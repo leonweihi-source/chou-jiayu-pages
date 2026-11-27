@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="東漢食補｜紅燒羊肉爐、薑母鴨、何首烏雞湯。門市現煮、冷凍宅配、團購配送一頁搞定。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="東漢食補｜紅燒羊肉爐・薑母鴨・何首烏雞湯">
+<meta property="og:description" content="一鍋老方子，暖一桌人。門市現煮自取 1 包即享成團價；冷凍宅配 8 包可混搭免運。">
+<meta property="og:image" content="assets/processed/food_mutton_hero.jpg">
+<link rel="icon" type="image/svg+xml" href="assets/brand_mark_store.svg">
+<title>東漢食補｜一頁式・羊肉爐 薑母鴨 何首烏雞湯</title>
+<style>
+  :root{
+    --paper:#F5EDDC;--paper2:#EADCC0;--ink:#211D19;--red:#A32B20;--red2:#7E1D16;
+    --gold:#B08D3F;--gold2:#D4B15E;--brown:#5C3B24;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:"Microsoft JhengHei","PingFang TC",sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.7;
+  }
+  .kai{font-family:"DFKai-SB","標楷體","KaiTi",serif;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 18px;}
+
+  /* 導覽 */
+  nav{
+    position:sticky;top:0;z-index:50;background:rgba(245,237,220,.96);
+    backdrop-filter:blur(8px);border-bottom:.3mm solid rgba(92,59,36,.18);
+  }
+  nav .wrap{display:flex;align-items:center;gap:14px;height:58px;}
+  nav .logo{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);}
+  nav .logo img{width:38px;background:var(--paper);}
+  nav .logo b{font-size:17px;letter-spacing:.16em;font-weight:400;}
+  nav .links{margin-left:auto;display:flex;gap:16px;}
+  nav .links a{text-decoration:none;color:#5b4a38;font-size:13px;letter-spacing:.08em;padding:6px 0;border-bottom:2px solid transparent;}
+  nav .links a:hover{color:var(--red);border-color:var(--red);}
+  nav .call{
+    background:var(--red);color:#F7EEDC;text-decoration:none;font-size:13px;
+    letter-spacing:.08em;padding:8px 14px;border-radius:4px;
+  }
+  nav .order-cta{
+    background:var(--ink);color:var(--gold2);border:1px solid rgba(176,141,63,.65);
+    text-decoration:none;font-size:13px;letter-spacing:.08em;padding:7px 13px;border-radius:4px;white-space:nowrap;
+  }
+  nav .order-cta:hover{background:#2f2924;}
+  @media(max-width:640px){nav .links{display:none;}nav .order-cta{margin-left:auto;}}
+
+  /* Hero */
+  header.hero{
+    background:linear-gradient(160deg,#F7EFDF 0%,var(--paper2) 100%);
+    padding:52px 0 40px;position:relative;overflow:hidden;
+  }
+  header.hero::after{
+    content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;border-radius:50%;
+    background:radial-gradient(circle,rgba(163,43,32,.10),transparent 70%);
+  }
+  .hero-in{display:flex;align-items:center;gap:32px;position:relative;z-index:2;flex-wrap:wrap;}
+  .hero-in .mark{width:150px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.15));}
+  .hero-txt{flex:1;min-width:260px;}
+  .hero-txt .eyebrow{font-size:13px;letter-spacing:.34em;color:var(--red);font-family:Georgia,serif;}
+  .hero-txt h1{font-size:44px;line-height:1.25;font-weight:400;letter-spacing:.04em;margin:10px 0 12px;}
+  .hero-txt h1 em{font-style:normal;color:var(--red);}
+  .hero-txt p{font-size:15px;color:#4c3c2c;max-width:520px;}
+  .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;}
+  .trust span{font-size:12.5px;color:var(--brown);letter-spacing:.06em;}
+  .trust span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:7px;vertical-align:2px;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
+  .btn-primary{
+    display:inline-block;background:var(--red);color:#F7EEDC;text-decoration:none;
+    font-size:14.5px;letter-spacing:.12em;padding:11px 22px;border-radius:4px;
+    box-shadow:0 6px 16px rgba(163,43,32,.22);
+  }
+  .btn-primary:hover{background:var(--red2);}
+  .btn-outline{
+    display:inline-block;border:1px solid rgba(92,59,36,.45);color:var(--brown);text-decoration:none;
+    font-size:14px;letter-spacing:.1em;padding:10px 18px;border-radius:4px;background:rgba(255,250,240,.55);
+  }
+  .btn-outline:hover{border-color:var(--red);color:var(--red);}
+  @media(max-width:640px){.hero-txt h1{font-size:32px;}.hero-in .mark{width:110px;}}
+
+  /* 通用區段 */
+  section{padding:48px 0;}
+  .sec-h{text-align:center;margin-bottom:28px;}
+  .sec-h .en{font-family:Georgia,serif;font-size:12px;letter-spacing:.34em;color:var(--gold);}
+  .sec-h h2{font-size:30px;font-weight:400;letter-spacing:.14em;margin-top:6px;}
+  .sec-h h2 span{color:var(--red);}
+  .sec-h .line{width:46px;height:2px;background:var(--red);margin:12px auto 0;opacity:.6;}
+
+  /* 品項 */
+  .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .prod{background:#fffaf0;border:.3mm solid rgba(92,59,36,.18);border-radius:6px;overflow:hidden;box-shadow:0 6px 18px rgba(92,59,36,.10);}
+  .prod .ph{height:180px;overflow:hidden;}
+  .prod .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 55%;transition:transform .4s;}
+  .prod:hover .ph img{transform:scale(1.06);}
+  .prod .body{padding:16px 16px 18px;}
+  .prod h3{font-size:22px;font-weight:400;letter-spacing:.08em;}
+  .prod h3 small{display:block;font-family:Georgia,serif;font-size:11px;letter-spacing:.22em;color:var(--brown);margin-top:4px;}
+  .prod p{font-size:13.5px;color:#5b4a38;margin-top:10px;line-height:1.8;}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+  .tags i{font-style:normal;font-size:11.5px;border:.3mm solid rgba(163,43,32,.45);color:var(--red2);padding:3px 8px;border-radius:2px;}
+  @media(max-width:760px){.products{grid-template-columns:1fr;}.prod .ph{height:220px;}}
+
+  /* 價格 */
+  .price-band{background:#2a2420;color:var(--paper);}
+  .price-band .sec-h h2 span{color:var(--gold2);}
+  .ptable{width:100%;border-collapse:collapse;font-size:15px;}
+  .ptable th{font-size:12px;font-weight:400;letter-spacing:.14em;color:var(--gold2);text-align:left;padding-bottom:10px;border-bottom:.3mm solid rgba(212,177,94,.4);}
+  .ptable td{padding:12px 0;border-bottom:.2mm solid rgba(212,177,94,.18);}
+  .ptable td.n{font-family:Georgia,serif;font-size:22px;text-align:right;}
+  .ptable td.n s{font-size:13px;color:rgba(245,237,220,.45);margin-left:6px;}
+  .ptable tr.hl td{background:rgba(212,177,94,.09);}
+  .badge{display:inline-block;background:var(--gold);color:#231F1C;font-size:11px;padding:2px 8px;margin-left:8px;letter-spacing:.06em;}
+  .ship{text-align:center;margin-top:20px;font-size:13px;color:var(--gold2);letter-spacing:.08em;}
+
+  /* 兩條通路 */
+  .channels{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .ch{padding:26px;border-radius:6px;box-shadow:0 6px 16px rgba(0,0,0,.12);}
+  .ch.store{background:var(--paper);border:.3mm solid rgba(163,43,32,.4);}
+  .ch.online{background:#231F1C;border:.3mm solid rgba(176,141,63,.6);color:var(--paper);}
+  .ch .tag{font-size:11px;letter-spacing:.24em;font-family:Georgia,serif;}
+  .ch.store .tag{color:var(--red);} .ch.online .tag{color:var(--gold2);}
+  .ch h3{font-size:28px;font-weight:400;letter-spacing:.16em;margin:8px 0 4px;}
+  .ch .desc{font-size:13px;opacity:.8;}
+  .ch ul{list-style:none;margin-top:16px;font-size:13.5px;line-height:2;}
+  .ch.store ul{color:#4c3c2c;} .ch.online ul{color:rgba(245,237,220,.82);}
+  .ch b{font-weight:400;color:var(--red);} .ch.online b{color:var(--gold2);}
+  @media(max-width:760px){.channels{grid-template-columns:1fr;}}
+
+  /* 聯絡 */
+  .contact{background:var(--paper2);}
+  .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .citem{background:rgba(255,255,255,.5);border:.3mm solid rgba(92,59,36,.16);padding:16px 18px;border-radius:5px;}
+  .citem .k{font-size:11px;letter-spacing:.2em;color:var(--red);font-family:Georgia,serif;}
+  .citem .v{font-size:15px;margin-top:6px;letter-spacing:.02em;}
+  .citem a{color:var(--ink);text-decoration:none;}
+  @media(max-width:640px){.contact-grid{grid-template-columns:1fr;}}
+
+  footer{background:#211D19;color:rgba(245,237,220,.6);text-align:center;padding:28px 18px;font-size:12px;letter-spacing:.06em;line-height:1.9;}
+  footer .mark{width:54px;display:block;margin:0 auto 12px;}
+  footer b{color:var(--gold2);font-weight:400;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="assets/brand_mark_store.svg" alt=""><b class="kai">東漢食補</b></a>
+    <div class="links">
+      <a href="#products">品項</a><a href="#price">價格</a><a href="#channels">兩條通路</a><a href="#contact">聯絡</a>
+    </div>
+    <a class="order-cta kai" href="線上訂購.html">線上訂購</a>
+    <a class="call" href="tel:0989322205">☎ 0989-322-205</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-in">
+    <img class="mark" src="assets/brand_mark_store.svg" alt="東漢食補標誌佔位">
+    <div class="hero-txt">
+      <div class="eyebrow">DONGHAN SHIBU · STORE &amp; ONLINE</div>
+      <h1 class="kai">一鍋老方子，<br><em>暖一桌人。</em></h1>
+      <p>紅燒羊肉爐、薑母鴨、何首烏雞湯。門市現煮、冷凍熟食、團購宅配——想吃的那一鍋，這裡都有。</p>
+      <div class="trust">
+        <span>不加味精</span><span>不加防腐劑</span><span>2 人份</span><span>加熱 10 分鐘上桌</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn-primary kai" href="線上訂購.html">立即線上訂購 →</a>
+        <a class="btn-outline" href="#price">查看團購價格</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="products">
+  <div class="wrap">
+    <div class="sec-h"><div class="en">OUR POTS</div><h2 class="kai">一桌，<span>三種暖</span></h2><div class="line"></div></div>
+    <div class="products">
+      <article class="prod">
+        <div class="ph"><img src="assets/processed/food_mutton_hero.jpg" alt="紅燒羊肉爐"></div>
+        <div class="body">
+          <h3 class="kai">紅燒羊肉爐<small>BRAISED LAMB</small></h3>
+          <p>精選帶皮土羊肉，當歸、生薑、枸杞與桂皮慢燉，湯色紅亮、入口溫潤。</p>
+          <div class="tags"><i>帶皮羊肉</i><i>微麻油香</i><i>不燥</i></div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="ph"><img src="assets/processed/food_duck_hd.jpg" alt="薑母鴨"></div>
+        <div class="body">
+          <h3 class="kai">薑母鴨<small>GINGER DUCK</small></h3>
+          <p>土產紅面番鴨，老薑與黑麻油爆香，米酒作藥引。湯頭辛香溫厚。</p>
+          <div class="tags"><i>紅面番鴨</i><i>老薑麻油</i><i>附湯 1,200ml</i></div>
+        </div>
+      </article>
+      <article class="prod">
+        <div class="ph"><img src="assets/processed/food_herb_chicken_hd.jpg" alt="何首烏雞湯"></div>
+        <div class="body">
+          <h3 class="kai">何首烏雞湯<small>HERB CHICKEN</small></h3>
+          <p>何首烏、枸杞與紅棗慢熬湯頭（本品為純湯底、不含雞肉塊），湯色沉亮回甘。建議自備半隻雞或雞腿肉入鍋同燉，全家補氣不燥熱。</p>
+          <div class="tags"><i>純湯底・無肉塊</i><i>可加半隻雞／雞腿</i><i>溫補不燥</i></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="price-band" id="price">
+  <div class="wrap">
+    <div class="sec-h"><div class="en">GROUP BUY</div><h2 class="kai">團購，<span>更划算</span></h2><div class="line"></div></div>
+    <table class="ptable">
+      <tr><th>品項</th><th style="text-align:right">單包</th><th style="text-align:right">3 包</th><th style="text-align:right">8 包成團</th></tr>
+      <tr><td>紅燒羊肉爐</td><td class="n">650</td><td class="n">610</td><td class="n">560</td></tr>
+      <tr><td>薑母鴨</td><td class="n">580</td><td class="n">540</td><td class="n">500</td></tr>
+      <tr class="hl"><td>何首烏雞湯（純湯底・無肉塊）</td><td class="n">330</td><td class="n">300</td><td class="n">260</td></tr>
+    </table>
+    <div class="ship">1–7 包宅配 +290　・　8 包可混搭免運　・　來電自取 1 包即享成團價　・　每週三、六低溫配送</div>
+    <div style="text-align:center;margin-top:22px;">
+      <a href="線上訂購.html" class="kai" style="display:inline-block;background:var(--gold);color:#231F1C;text-decoration:none;padding:11px 26px;border-radius:4px;font-size:15px;letter-spacing:.12em;">前往線上選購試算・立即下單 →</a>
+    </div>
+  </div>
+</section>
+
+<section id="channels">
+  <div class="wrap">
+    <div class="sec-h"><div class="en">TWO CHANNELS</div><h2 class="kai">一組識別，<span>兩條通路</span></h2><div class="line"></div></div>
+    <div class="channels">
+      <div class="ch store">
+        <div class="tag">STORE · 門市</div>
+        <h3 class="kai">東漢食補</h3>
+        <div class="desc">現煮・內用・外帶</div>
+        <ul>
+          <li><b>地址</b>　<a href="https://www.google.com/maps/search/?api=1&query=新北市新莊區壽山路109-1號" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">新北市新莊區壽山路109-1號</a></li>
+          <li><b>電話</b>　〔市話待補〕</li>
+          <li><b>手機</b>　<a href="tel:0989322205" style="color:inherit;text-decoration:none">0989-322-205</a></li>
+          <li><b>特色</b>　灶腳現煮，熱騰騰直接上桌</li>
+          <li><b>自取</b>　來電或線上預訂，1 包即享成團價、免運</li>
+        </ul>
+      </div>
+      <div class="ch online">
+        <div class="tag">ONLINE · 網路</div>
+        <h3 class="kai">東漢食補</h3>
+        <div class="desc">冷凍熟食・團購・宅配</div>
+        <ul>
+          <li><b>配送</b>　每週三、週六低溫配送</li>
+          <li><b>保存</b>　－18°C 冷凍 12 個月</li>
+          <li><b>團購</b>　8 包可混搭免運・宅配 +290</li>
+          <li><b>回店</b>　包裹附門市折抵券 $50</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-h"><div class="en">CONTACT</div><h2 class="kai">跟我們<span>聯絡</span></h2><div class="line"></div></div>
+    <div class="contact-grid">
+      <div class="citem"><div class="k">ADDRESS</div><div class="v"><a href="https://www.google.com/maps/search/?api=1&query=新北市新莊區壽山路109-1號" target="_blank" rel="noopener">新北市新莊區壽山路109-1號（Google 地圖導航 &#8599;）</a></div></div>
+      <div class="citem"><div class="k">PHONE</div><div class="v"><a href="tel:0989322205">0989-322-205</a>　（〔市話待補〕）</div></div>
+      <div class="citem"><div class="k">LINE / FB</div><div class="v">LINE ID：〔待客戶提供〕　・　FB：東漢食補</div></div>
+      <div class="citem"><div class="k">DELIVERY</div><div class="v">每週三、週六低溫配送　・　團購 8 包免運</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="mark" src="assets/brand_mark_online.svg" alt="">
+  <div><b>東漢食補</b>　門市現煮　｜　冷凍熟食・網路宅配</div>
+  <div>新北市新莊區壽山路109-1號　聯絡電話 0989-322-205　｜　LINE ID：〔待客戶提供〕</div>
+  <div>本產品為一般食品，非藥品，不具醫療效能。</div>
+</footer>
+
+</body>
+</html>

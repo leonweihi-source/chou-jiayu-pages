@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>東漢食補｜雙通路品牌架構</title>
+<style>
+  :root{--paper:#F5EDDC;--ink:#211D19;--red:#A32B20;--gold:#B08D3F;--brown:#5C3B24;--bg:#241F1C;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--paper);font-family:"Microsoft JhengHei","PingFang TC",sans-serif;
+       padding:14mm 10mm 18mm;-webkit-font-smoothing:antialiased;}
+  .kai{font-family:"DFKai-SB","標楷體",serif;}
+  .wrap{max-width:1100px;margin:0 auto;}
+  header{display:flex;align-items:center;gap:7mm;padding-bottom:7mm;border-bottom:.3mm solid rgba(245,237,220,.22);}
+  header img{width:22mm;background:rgba(245,237,220,.94);padding:1mm;border-radius:.5mm;}
+  h1{font-size:8.2mm;font-weight:400;letter-spacing:.16em;line-height:1.15;}
+  .sub{font-size:2.5mm;letter-spacing:.16em;color:rgba(245,237,220,.6);margin-top:2.5mm;}
+  h2{font-size:3.4mm;font-weight:400;letter-spacing:.24em;color:rgba(245,237,220,.62);
+     margin:12mm 0 5mm;display:flex;align-items:center;gap:4mm;}
+  h2::after{content:"";flex:1;height:.2mm;background:rgba(245,237,220,.16);}
+
+  /* ---- 架構圖 ---- */
+  .tree{background:rgba(245,237,220,.05);border:.2mm solid rgba(245,237,220,.14);padding:8mm 6mm;text-align:center;}
+  .node{display:inline-block;background:var(--paper);color:var(--ink);padding:4mm 8mm;}
+  .node .n1{font-size:5mm;letter-spacing:.18em;}
+  .node .n2{font-size:1.8mm;letter-spacing:.24em;color:var(--brown);font-family:Georgia,serif;margin-top:2mm;}
+  .stem{width:.25mm;height:7mm;background:rgba(245,237,220,.35);margin:0 auto;}
+  .branch{display:flex;justify-content:center;gap:16mm;margin-top:0;position:relative;}
+  .branch::before{content:"";position:absolute;top:0;left:25%;right:25%;height:.25mm;background:rgba(245,237,220,.35);}
+  .leaf{position:relative;padding-top:7mm;}
+  .leaf::before{content:"";position:absolute;top:0;left:50%;width:.25mm;height:7mm;background:rgba(245,237,220,.35);}
+  .role{font-size:2.2mm;letter-spacing:.14em;margin-top:2.5mm;color:rgba(245,237,220,.7);}
+  .role b{color:var(--gold);font-weight:400;}
+
+  /* ---- lockup ---- */
+  .lockups{display:grid;grid-template-columns:1fr 1fr;gap:6mm;}
+  .lk{position:relative;padding:9mm;min-height:118mm;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;overflow:hidden;box-shadow:0 4mm 12mm rgba(0,0,0,.45);}
+  .lk.store{background:var(--paper);color:var(--ink);}
+  .lk.online{background:#231F1C;color:var(--paper);border:.25mm solid rgba(176,141,63,.5);}
+  .lk img{width:34mm;}
+  .lk .word{font-size:9.5mm;letter-spacing:.2em;margin-top:5mm;}
+  .lk .en{font-family:Georgia,serif;font-size:2.1mm;letter-spacing:.3em;margin-top:2.5mm;opacity:.75;}
+  .lk .badge{margin-top:5mm;font-size:2.3mm;letter-spacing:.18em;padding:1.6mm 4mm;border:.25mm solid;}
+  .lk.store .badge{color:var(--red);border-color:rgba(163,43,32,.55);}
+  .lk.online .badge{color:var(--gold);border-color:rgba(176,141,63,.55);}
+  .lk .foot{position:absolute;bottom:5mm;left:0;right:0;text-align:center;font-size:1.8mm;letter-spacing:.14em;opacity:.55;}
+
+  /* ---- 表格 ---- */
+  table{width:100%;border-collapse:collapse;font-size:2.5mm;}
+  th{font-size:2mm;font-weight:400;letter-spacing:.16em;color:rgba(245,237,220,.5);text-align:left;
+     padding-bottom:2.5mm;border-bottom:.25mm solid rgba(245,237,220,.22);}
+  td{padding:2.6mm 0;border-bottom:.15mm solid rgba(245,237,220,.1);letter-spacing:.04em;color:rgba(245,237,220,.85);vertical-align:top;}
+  td:first-child{color:rgba(245,237,220,.5);white-space:nowrap;padding-right:8mm;width:28mm;}
+  td b{font-weight:400;color:#F7EEDC;}
+  .sw{display:inline-block;width:3mm;height:3mm;margin-right:1.5mm;vertical-align:-.5mm;border-radius:50%;}
+
+  /* ---- 規範 ---- */
+  .rules{display:grid;grid-template-columns:1fr 1fr;gap:5mm;}
+  .rule{background:rgba(245,237,220,.05);border-left:.7mm solid var(--gold);padding:5mm 6mm;}
+  .rule h4{font-size:2.8mm;letter-spacing:.12em;font-weight:400;color:var(--gold);margin-bottom:2mm;}
+  .rule p{font-size:2.35mm;line-height:1.8;color:rgba(245,237,220,.78);}
+  .rule b{color:#F7EEDC;font-weight:400;}
+
+  .warn{margin-top:10mm;background:rgba(163,43,32,.16);border-left:.8mm solid var(--red);padding:5mm 6mm;}
+  .warn h3{font-size:3mm;letter-spacing:.16em;color:#E8A79C;font-weight:400;margin-bottom:2.5mm;}
+  .warn p{font-size:2.4mm;line-height:1.85;color:rgba(245,237,220,.82);}
+  @media(max-width:820px){.lockups,.rules{grid-template-columns:1fr;}.branch{flex-direction:column;align-items:center;gap:0;}.branch::before{display:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <img src="assets/brand_mark_store.svg" alt="">
+  <div>
+    <h1 class="kai">單一品牌，雙色區分兩條通路</h1>
+    <div class="sub">東漢食補　BRAND ARCHITECTURE　2026-11</div>
+  </div>
+</header>
+
+<h2>架構：同一品牌 × 雙通路延伸</h2>
+<div class="tree">
+  <div class="node">
+    <div class="n1 kai">東漢食補</div>
+    <div class="n2">DONGHAN SHIBU　·　BRAND</div>
+  </div>
+  <div class="stem"></div>
+  <div class="branch">
+    <div class="leaf">
+      <div class="node">
+        <div class="n1 kai">東漢食補</div>
+        <div class="n2">STORE · 朱紅紙色</div>
+      </div>
+      <div class="role">門市通路　<b>現煮・內用・外帶</b></div>
+    </div>
+    <div class="leaf">
+      <div class="node">
+        <div class="n1 kai">東漢食補</div>
+        <div class="n2">ONLINE · 墨黑金色</div>
+      </div>
+      <div class="role">網路通路　<b>冷凍熟食・團購・宅配</b></div>
+    </div>
+  </div>
+</div>
+
+<h2>兩個 lockup，同一組元素</h2>
+<div class="lockups">
+  <div class="lk store">
+    <img src="assets/brand_mark_store.svg" alt="">
+    <div class="word kai">東漢食補</div>
+    <div class="en">DONGHAN SHIBU · STORE</div>
+    <div class="badge kai">門市・現煮熱食</div>
+    <div class="foot">新北新莊　0989-322-205</div>
+  </div>
+  <div class="lk online">
+    <img src="assets/brand_mark_online.svg" alt="">
+    <div class="word kai">東漢食補</div>
+    <div class="en">DONGHAN SHIBU · ONLINE</div>
+    <div class="badge kai">網路・冷凍熟食</div>
+    <div class="foot">冷凍 －18°C　每週三、六配送</div>
+  </div>
+</div>
+
+<h2>分工表</h2>
+<table>
+  <tr><th>項目</th><th>東漢食補（門市）</th><th>東漢食補（網路）</th></tr>
+  <tr><td>角色</td><td><b>品牌母體・實體門市</b></td><td><b>通路品牌・冷凍熟食</b></td></tr>
+  <tr><td>主要客群</td><td>門市周邊客群、路過客、家庭聚餐</td><td>全台團購、上班族、送禮</td></tr>
+  <tr><td>產品</td><td>現煮鍋物、小菜、內用</td><td>冷凍調理包、8 入團購箱</td></tr>
+  <tr><td>主色</td><td><span class="sw" style="background:#A32B20"></span>朱紅 ＋ 紙色</td><td><span class="sw" style="background:#211D19"></span>墨黑 ＋ <span class="sw" style="background:#B08D3F"></span>金</td></tr>
+  <tr><td>語氣</td><td>人情、灶腳、鄰居</td><td>方便、安心、產地直送</td></tr>
+  <tr><td>字標</td><td>東漢食補（朱紅）</td><td>東漢食補（墨黑＋金）</td></tr>
+  <tr><td>共同</td><td colspan="2">同一組品牌標誌、同一組標楷字、同一組紙紋與金色</td></tr>
+</table>
+
+<h2>四條使用規範</h2>
+<div class="rules">
+  <div class="rule">
+    <h4>01　統一品牌名稱</h4>
+    <p>實體門市與冷凍宅配統一使用「<b>東漢食補</b>」，所有名片、DM、外盒與網頁均採一致命名，累積單一品牌記憶度。</p>
+  </div>
+  <div class="rule">
+    <h4>02　靠色彩與副標區分通路</h4>
+    <p>門市現場與自取一律採用<b>朱紅＋紙色</b>；冷凍熟食宅配一律採用<b>墨黑＋金</b>，視覺上即刻辨識「現場吃」或「冷凍買」。</p>
+  </div>
+  <div class="rule">
+    <h4>03　宅配包裝導流門市</h4>
+    <p>黑金宅配外盒與 DM 固定加註「<b>門市：東漢食補・新莊門市</b>」，並隨箱附門市 $50 折抵券，把團購客導回實體店。</p>
+  </div>
+  <div class="rule">
+    <h4>04　雙類商標覆蓋</h4>
+    <p>同時經營實體餐飲與冷凍調理包販售，申請或使用「東漢食補」商標時建議確認涵蓋第 29 類（冷凍食品）與第 43 類（餐飲門市）。</p>
+  </div>
+</div>
+
+<div class="warn">
+  <h3>LOGO 視覺定案說明</h3>
+  <p>
+    本版本已將門市與宅配兩條通路全面統一為「<b>東漢食補</b>」，目前採通用向量 SVG 佔位圖展示版面比例。<br>
+    後續只需產出一組「東漢食補」正式 LOGO（淺底朱紅版／深底淺金版），即可直接套入全部印刷品與官網使用。
+  </p>
+</div>
+
+</div>
+</body>
+</html>

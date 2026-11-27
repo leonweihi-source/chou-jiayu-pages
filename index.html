@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>東漢食補｜周家宇提案｜提案總覽</title>
+<style>
+  :root{
+    --paper:#F5EDDC; --paper2:#EADCC0; --ink:#211D19; --red:#A32B20;
+    --red2:#7E1D16; --gold:#B08D3F; --brown:#5C3B24; --bg:#241F1C;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--paper);
+    font-family:"Microsoft JhengHei","PingFang TC",sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding:14mm 10mm 16mm;
+  }
+  .kai{font-family:"DFKai-SB","標楷體","KaiTi",serif;}
+  .wrap{max-width:1180px;margin:0 auto;}
+
+  /* ---------- 頁首 ---------- */
+  .hero{
+    display:flex;align-items:center;gap:9mm;
+    padding-bottom:8mm;border-bottom:.3mm solid rgba(245,237,220,.22);
+  }
+  .hero img{width:30mm;background:rgba(245,237,220,.94);padding:1.2mm;border-radius:.5mm;filter:drop-shadow(0 2mm 4mm rgba(0,0,0,.5));}
+  .hero h1{font-size:11mm;letter-spacing:.22em;font-weight:400;line-height:1;}
+  .hero .en{font-size:2.4mm;letter-spacing:.38em;color:var(--gold);font-family:Georgia,serif;margin-top:3mm;}
+  .hero .tag{font-size:3mm;letter-spacing:.2em;color:rgba(245,237,220,.62);margin-top:3mm;}
+  .hero .meta{margin-left:auto;text-align:right;font-size:2.3mm;line-height:2;letter-spacing:.12em;color:rgba(245,237,220,.5);}
+  .hero .meta b{color:var(--gold);font-weight:400;}
+
+  h2.sec{
+    font-size:3.2mm;letter-spacing:.26em;font-weight:400;color:rgba(245,237,220,.55);
+    margin:14mm 0 5mm;display:flex;align-items:center;gap:4mm;
+  }
+  h2.sec::after{content:"";flex:1;height:.2mm;background:rgba(245,237,220,.16);}
+
+  /* ---------- 設計稿卡片 ---------- */
+  .docs{display:grid;grid-template-columns:repeat(3,1fr);gap:7mm;}
+  .doc{
+    background:var(--paper);color:var(--ink);border-radius:1.2mm;overflow:hidden;
+    box-shadow:0 4mm 12mm rgba(0,0,0,.45);display:flex;flex-direction:column;
+  }
+  .shot{
+    height:380px;background:#2b2b2b;display:flex;align-items:center;justify-content:center;
+    overflow:hidden;position:relative;text-decoration:none;
+  }
+  .shot .fit{position:relative;overflow:hidden;background:#2b2b2b;}
+  .shot iframe{
+    position:absolute;top:0;left:0;border:0;transform-origin:top left;
+    background:#2b2b2b;pointer-events:none;
+  }
+  .shot::after{
+    content:"點擊預覽完整檔";
+    position:absolute;right:3mm;bottom:3mm;z-index:2;
+    font-size:2.1mm;letter-spacing:.1em;color:#f2ece0;
+    background:rgba(163,43,32,.9);padding:1mm 2.4mm;border-radius:.6mm;
+    opacity:0;transition:opacity .25s;
+  }
+  .shot:hover::after{opacity:1;}
+
+  .meta{padding:5mm 5.5mm 6mm;display:flex;flex-direction:column;flex:1;}
+  .meta .no{font-family:Georgia,serif;font-size:3mm;letter-spacing:.28em;color:var(--red);}
+  .meta h3{font-size:6mm;font-weight:400;letter-spacing:.08em;margin-top:2mm;line-height:1.25;}
+  .meta h3 small{display:block;font-family:Georgia,serif;font-size:2mm;letter-spacing:.24em;color:var(--brown);margin-top:1.4mm;}
+  .meta p{font-size:2.6mm;line-height:1.75;color:#4c3c2c;margin-top:2.6mm;}
+  .spec{display:flex;flex-wrap:wrap;gap:1.4mm;margin-top:3mm;list-style:none;}
+  .spec li{font-size:2.1mm;letter-spacing:.06em;color:var(--red2);
+    border:.18mm solid rgba(163,43,32,.4);padding:.7mm 1.8mm;}
+  .open{
+    margin-top:auto;padding-top:4.5mm;font-size:2.5mm;letter-spacing:.14em;
+    color:var(--red);text-decoration:none;border-top:.2mm solid rgba(92,59,36,.2);
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .open:hover{color:var(--red2);}
+  .open span{font-family:Georgia,serif;}
+
+  /* ---------- 素材 ---------- */
+  .assets{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:4mm;}
+  .asset{position:relative;background:#2f2925;border:.2mm solid rgba(245,237,220,.12);padding:3mm;text-align:center;}
+  .asset img{width:100%;height:74px;object-fit:contain;display:block;}
+  .asset .nm{font-size:1.85mm;letter-spacing:.04em;color:rgba(245,237,220,.62);margin-top:2.4mm;word-break:break-all;}
+  .asset .bdg{position:absolute;top:0;right:0;font-size:1.7mm;letter-spacing:.08em;padding:.6mm 1.4mm;}
+  .asset .bdg.on{background:rgba(163,43,32,.9);color:#F7EEDC;}
+  .asset .bdg.off{background:rgba(245,237,220,.14);color:rgba(245,237,220,.6);}
+
+  /* ---------- 規格表 ---------- */
+  .panel{background:var(--paper);color:var(--ink);padding:6mm 7mm;border-radius:1.2mm;box-shadow:0 3mm 10mm rgba(0,0,0,.4);}
+  table{width:100%;border-collapse:collapse;font-size:2.5mm;}
+  th{font-size:2.1mm;font-weight:400;letter-spacing:.14em;color:#6b5844;text-align:left;
+     padding-bottom:2mm;border-bottom:.3mm solid rgba(92,59,36,.3);}
+  td{padding:2mm 0;border-bottom:.15mm solid rgba(92,59,36,.14);letter-spacing:.03em;vertical-align:top;}
+  td:first-child{color:var(--brown);white-space:nowrap;padding-right:5mm;}
+  tr:last-child td{border-bottom:0;}
+  .wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:6mm;}
+
+  /* ---------- 待確認 ---------- */
+  .todo{background:rgba(176,141,63,.1);border-left:.8mm solid var(--gold);padding:5mm 6mm;}
+  .todo h3{font-size:3.4mm;font-weight:400;letter-spacing:.14em;color:var(--gold);margin-bottom:3mm;}
+  .todo ol{list-style:none;counter-reset:t;}
+  .todo li{counter-increment:t;font-size:2.5mm;line-height:1.85;color:rgba(245,237,220,.78);
+    padding-left:6mm;position:relative;}
+  .todo li::before{content:counter(t);position:absolute;left:0;font-family:Georgia,serif;
+    color:var(--gold);font-size:2.1mm;}
+  .todo b{color:#F7EEDC;font-weight:400;}
+
+  footer{margin-top:12mm;padding-top:5mm;border-top:.2mm solid rgba(245,237,220,.15);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:3mm;
+    font-size:2.1mm;letter-spacing:.06em;color:rgba(245,237,220,.4);}
+
+  @media(max-width:900px){
+    .docs{grid-template-columns:minmax(0,420px);justify-content:center;}
+    .wide{grid-template-columns:1fr;}
+    .hero{flex-wrap:wrap;}
+    .hero .meta{margin-left:0;text-align:left;width:100%;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <img src="assets/brand_mark_store.svg" alt="東漢食補 標誌佔位">
+    <div>
+      <h1 class="kai">東漢食補｜周家宇提案</h1>
+      <div class="en">DONGHAN SHIBU · PROPOSAL 2026-11 &nbsp;·&nbsp; 專屬提案（客戶：周家宇）</div>
+      <div class="tag">外盒包裝 ｜ 名片 ｜ A5 DM　設計提案總覽</div>
+    </div>
+    <div class="meta">
+      <div>提案日期　<b>2026 / 11</b></div>
+      <div>文件數　<b>13</b>　素材　<b>10</b></div>
+      <div>全部為 HTML，可直接瀏覽器開啟</div>
+    </div>
+  </header>
+
+  <h2 class="sec">設計稿</h2>
+  <div class="docs">
+
+    <!-- 01 外盒 -->
+    <article class="doc">
+      <a class="shot" href="外盒_設計.html" target="_blank" rel="noopener" title="開啟 外盒_設計.html">
+        <div class="fit" style="width:337px;height:380px">
+          <iframe src="外盒_設計.html" style="width:1123px;height:2400px;transform:scale(.30)" scrolling="no" tabindex="-1" loading="lazy"></iframe>
+        </div>
+      </a>
+      <div class="meta">
+        <div class="no">01</div>
+        <h3 class="kai">外盒包裝<small>BOX PACKAGING</small></h3>
+        <p>正面、側面 1:1 刀模示意，盒型展開圖與 8 入團購外箱。</p>
+        <ul class="spec"><li>正面 240×155</li><li>側面 85×155</li><li>外箱 400×300×200</li></ul>
+        <a class="open" href="外盒_設計.html" target="_blank" rel="noopener">開啟完整檔 <span>&#8599;</span></a>
+      </div>
+    </article>
+
+    <!-- 02 名片 -->
+    <article class="doc">
+      <a class="shot" href="名片_雙面.html" target="_blank" rel="noopener" title="開啟 名片_雙面.html">
+        <div class="fit" style="width:346px;height:123px">
+          <iframe src="名片_雙面.html" style="width:786px;height:280px;transform:scale(.44)" scrolling="no" tabindex="-1" loading="lazy"></iframe>
+        </div>
+      </a>
+      <div class="meta">
+        <div class="no">02</div>
+        <h3 class="kai">名片 雙面<small>BUSINESS CARD</small></h3>
+        <p>正面東漢食補與聯絡人（周家宇），背面三品項、聯絡資訊與官網 QRcode 佔位。</p>
+        <ul class="spec"><li>90 × 54 mm</li><li>雙面</li><li>周家宇</li></ul>
+        <a class="open" href="名片_雙面.html" target="_blank" rel="noopener">開啟完整檔 <span>&#8599;</span></a>
+      </div>
+    </article>
+
+    <!-- 03 DM -->
+    <article class="doc">
+      <a class="shot" href="DM_A5_雙面.html" target="_blank" rel="noopener" title="開啟 DM_A5_雙面.html">
+        <div class="fit" style="width:224px;height:318px">
+          <iframe src="DM_A5_雙面.html" style="width:559px;height:794px;transform:scale(.40)" scrolling="no" tabindex="-1" loading="lazy"></iframe>
+        </div>
+      </a>
+      <div class="meta">
+        <div class="no">03</div>
+        <h3 class="kai">DM A5 雙面<small>FLYER / A5</small></h3>
+        <p>封面形象主視覺，封底三品項介紹、三步上桌、團購價表與 QR。</p>
+        <ul class="spec"><li>148 × 210 mm</li><li>雙面</li><li>含價目表</li></ul>
+        <a class="open" href="DM_A5_雙面.html" target="_blank" rel="noopener">開啟完整檔 <span>&#8599;</span></a>
+      </div>
+    </article>
+
+  </div>
+
+  <h2 class="sec">素材 assets（通用佔位＋食品實拍）</h2>
+  <div class="assets">
+    <div class="asset"><span class="bdg on">佔位</span><img src="assets/brand_mark_store.svg" alt=""><div class="nm">brand_mark_store.svg</div></div>
+    <div class="asset"><span class="bdg on">佔位</span><img src="assets/brand_mark_online.svg" alt="" style="background:#231F1C"><div class="nm">brand_mark_online.svg</div></div>
+    <div class="asset"><span class="bdg on">佔位</span><img src="assets/qr_placeholder.svg" alt=""><div class="nm">qr_placeholder.svg</div></div>
+    <div class="asset"><span class="bdg on">使用中</span><img src="assets/processed/food_mutton_hd.jpg" alt=""><div class="nm">processed/food_mutton_hd.jpg</div></div>
+    <div class="asset"><span class="bdg on">使用中</span><img src="assets/processed/food_duck_hd.jpg" alt=""><div class="nm">processed/food_duck_hd.jpg</div></div>
+    <div class="asset"><span class="bdg on">使用中</span><img src="assets/processed/food_mutton_hero.jpg" alt=""><div class="nm">processed/food_mutton_hero.jpg</div></div>
+    <div class="asset"><span class="bdg on">使用中</span><img src="assets/processed/food_herb_chicken_hd.jpg" alt=""><div class="nm">processed/food_herb_chicken_hd.jpg</div></div>
+    <div class="asset"><span class="bdg off">來源</span><img src="assets/processed/food_meat_closeup_hd.jpg" alt=""><div class="nm">processed/food_meat_closeup_hd.jpg</div></div>
+    <div class="asset"><span class="bdg off">對照</span><img src="assets/food_mutton.jpg" alt=""><div class="nm">food_mutton.jpg</div></div>
+    <div class="asset"><span class="bdg off">對照</span><img src="assets/food_duck.jpg" alt=""><div class="nm">food_duck.jpg</div></div>
+  </div>
+
+  <h2 class="sec">宅配版（網路通路）設計稿</h2>
+  <div class="docs">
+    <article class="doc">
+      <a class="shot" href="DM_A5_雙面_宅配版.html" target="_blank" rel="noopener" title="開啟 DM_A5_雙面_宅配版.html">
+        <div class="fit" style="width:224px;height:318px">
+          <iframe src="DM_A5_雙面_宅配版.html" style="width:559px;height:794px;transform:scale(.40)" scrolling="no" tabindex="-1" loading="lazy"></iframe>
+        </div>
+      </a>
+      <div class="meta">
+        <div class="no">04</div>
+        <h3 class="kai">宅配版 DM A5 雙面<small>ONLINE / FLYER</small></h3>
+        <p>墨黑＋金，冷凍宅配比對。含三品項、團購價、QR 與「回店折抵券」，把網路客導回門市。</p>
+        <ul class="spec"><li>148 × 210 mm</li><li>雙面</li><li>含回店券</li></ul>
+        <a class="open" href="DM_A5_雙面_宅配版.html" target="_blank" rel="noopener">開啟完整檔 <span>&#8599;</span></a>
+      </div>
+    </article>
+    <article class="doc">
+      <a class="shot" href="外盒_設計_宅配版.html" target="_blank" rel="noopener" title="開啟 外盒_設計_宅配版.html">
+        <div class="fit" style="width:337px;height:380px">
+          <iframe src="外盒_設計_宅配版.html" style="width:1123px;height:2400px;transform:scale(.30)" scrolling="no" tabindex="-1" loading="lazy"></iframe>
+        </div>
+      </a>
+      <div class="meta">
+        <div class="no">05</div>
+        <h3 class="kai">宅配版 外盒包裝<small>ONLINE / BOX</small></h3>
+        <p>同款盒型改墨黑＋金，側面與外箱標示門市；兩個盒面與內附「回店折抵券」都放了 QR，導流到一頁式官網。</p>
+        <ul class="spec"><li>正面 240×155</li><li>外箱 8 入</li><li>折抵券含 QR</li></ul>
+        <a class="open" href="外盒_設計_宅配版.html" target="_blank" rel="noopener">開啟完整檔 <span>&#8599;</span></a>
+      </div>
+    </article>
+    <article class="doc">
+      <a class="shot" href="出貨食用說明.html" target="_blank" rel="noopener" title="開啟 出貨食用說明.html">
+        <div class="fit" style="width:224px;height:318px">
+          <iframe src="出貨食用說明.html" style="width:559px;height:794px;transform:scale(.40)" scrolling="no" tabindex="-1" loading="lazy"></iframe>
+        </div>
+      </a>
+      <div class="meta">
+        <div class="no">06</div>
+        <h3 class="kai">出貨食用說明<small>COOKING GUIDE / A5</small></h3>
+        <p>隨箱附贈 A5 單面說明卡：包含共通解凍三要點、紅燒羊肉爐／薑母鴨／何首烏雞湯（純湯底加肉提醒）專屬煮法與保存提醒。</p>
+        <ul class="spec"><li>148 × 210 mm</li><li>三品項通用</li><li>可直接列印</li></ul>
+        <a class="open" href="出貨食用說明.html" target="_blank" rel="noopener">開啟完整檔 <span>&#8599;</span></a>
+      </div>
+    </article>
+  </div>
+
+  <h2 class="sec">一頁式網頁・線上訂購・QRcode</h2>
+  <div class="docs" style="grid-template-columns:repeat(2,1fr);">
+    <article class="doc">
+      <a class="shot" href="一頁式網頁.html" target="_blank" rel="noopener" title="開啟 一頁式網頁.html">
+        <div class="fit" style="width:480px;height:258px">
+          <iframe src="一頁式網頁.html" style="width:1120px;height:600px;transform:scale(.43)" scrolling="no" tabindex="-1" loading="lazy"></iframe>
+        </div>
+      </a>
+      <div class="meta">
+        <div class="no">07</div>
+        <h3 class="kai">一頁式網頁<small>ONE-PAGE / QR</small></h3>
+        <p>手機優先單頁官網：三品項、團購價、東漢食補門市與冷凍宅配雙通路、聯絡資訊與線上訂購入口。目前使用 QR 佔位圖，正式部署上線後綁定真實網址並重新生成 QRcode。</p>
+        <ul class="spec"><li>手機優先</li><li>QR 高容錯</li><li>網址可換</li></ul>
+        <a class="open" href="一頁式網頁.html" target="_blank" rel="noopener">開啟完整檔 <span>&#8599;</span></a>
+      </div>
+    </article>
+    <article class="doc">
+      <a class="shot" href="線上訂購.html" target="_blank" rel="noopener" title="開啟 線上訂購.html">
+        <div class="fit" style="width:480px;height:258px">
+          <iframe src="線上訂購.html" style="width:1120px;height:600px;transform:scale(.43)" scrolling="no" tabindex="-1" loading="lazy"></iframe>
+        </div>
+      </a>
+      <div class="meta">
+        <div class="no">08</div>
+        <h3 class="kai">線上訂購頁<small>ONLINE ORDER</small></h3>
+        <p>延續朱紅紙色與黑金配色：可切換冷凍宅配／門市自取，即時試算單包、3 包、8 包混搭免運與自取成團價，支援 Netlify Forms 送單與一鍵複製明細傳送 LINE。</p>
+        <ul class="spec"><li>自動計價</li><li>8 包免運試算</li><li>LINE 複製明細</li></ul>
+        <a class="open" href="線上訂購.html" target="_blank" rel="noopener">開啟完整檔 <span>&#8599;</span></a>
+      </div>
+    </article>
+  </div>
+
+  <h2 class="sec">策略與紀錄</h2>
+  <div class="docs" style="grid-template-columns:repeat(2,1fr);">
+    <article class="doc">
+      <a class="shot" href="品牌架構_2026-11.html" target="_blank" rel="noopener" title="開啟 品牌架構_2026-11.html">
+        <div class="fit" style="width:420px;height:250px;overflow:hidden">
+          <iframe src="品牌架構_2026-11.html" style="width:1100px;height:1600px;transform:scale(.38)" scrolling="no" tabindex="-1" loading="lazy"></iframe>
+        </div>
+      </a>
+      <div class="meta">
+        <div class="no">STRATEGY</div>
+        <h3 class="kai">東漢食補 雙通路架構<small>BRAND ARCHITECTURE</small></h3>
+        <p>母品牌＋通路品牌：同一品牌（東漢食補）雙通路分工：門市現煮（朱紅）vs 冷凍宅配（墨黑＋金），含分工表與四條使用規範。</p>
+        <a class="open" href="品牌架構_2026-11.html" target="_blank" rel="noopener">開啟完整檔 <span>&#8599;</span></a>
+      </div>
+    </article>
+    <article class="doc">
+      <a class="shot" href="素材處理_2026-11.html" target="_blank" rel="noopener" title="開啟 素材處理_2026-11.html">
+        <div class="fit" style="width:420px;height:250px;overflow:hidden">
+          <iframe src="素材處理_2026-11.html" style="width:1100px;height:1500px;transform:scale(.38)" scrolling="no" tabindex="-1" loading="lazy"></iframe>
+        </div>
+      </a>
+      <div class="meta">
+        <div class="no">RECORD</div>
+        <h3 class="kai">素材處理紀錄<small>ASSET CLEAN-UP</small></h3>
+        <p>品牌標記佔位規範，以及食品攝影去偏橘／放大處理說明與後續商業拍攝建議。</p>
+        <a class="open" href="素材處理_2026-11.html" target="_blank" rel="noopener">開啟完整檔 <span>&#8599;</span></a>
+      </div>
+    </article>
+  </div>
+
+  <h2 class="sec">規格與資訊</h2>
+  <div class="wide">
+    <div class="panel">
+      <table>
+        <tr><th colspan="2">印刷尺寸</th></tr>
+        <tr><td>外盒</td><td>240 × 155 × 85 mm（糊盒）</td></tr>
+        <tr><td>外箱</td><td>400 × 300 × 200 mm・8 入</td></tr>
+        <tr><td>名片</td><td>90 × 54 mm・雙面</td></tr>
+        <tr><td>DM</td><td>148 × 210 mm（A5）・雙面</td></tr>
+        <tr><td>色彩</td><td>紙 #F5EDDC　紅 #A32B20　金 #B08D3F　褐 #5C3B24</td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <table>
+        <tr><th colspan="2">品項與價格</th></tr>
+        <tr><td>紅燒羊肉爐</td><td>1,200g（固形 380g）・2 人份・10 分鐘</td></tr>
+        <tr><td>薑母鴨</td><td>附湯 1,200ml・2 人份・10 分鐘</td></tr>
+        <tr><td>何首烏雞湯</td><td>純湯底（無肉塊，可加半隻雞／雞腿肉）・2 人份</td></tr>
+        <tr><td>羊／鴨／雞 單包</td><td>650／580／330</td></tr>
+        <tr><td>3 包</td><td>610／540／300</td></tr>
+        <tr><td>8 包成團</td><td>560／500／260（可混搭・免運）</td></tr>
+        <tr><td>宅配／自取</td><td>1–7 包 +290・8 包免運・來電自取 1 包即享成團價</td></tr>
+        <tr><td>配送</td><td>每週三、週六低溫配送</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2 class="sec">導入與上線前確認項目</h2>
+  <div class="todo">
+    <h3>正式製作前需與客戶確認</h3>
+    <ol>
+      <li><b>正式 LOGO 圖檔</b>：已固定品牌名稱為「東漢食補」，後續產出正式 LOGO 替換目前 SVG 佔位圖。</li>
+      <li><b>聯絡與收單設定</b>：補齊客戶 LINE ID、訂單通知信箱、市話（若有），並綁定正式官網網址。</li>
+      <li><b>包材與標示法規</b>：補齊三品項包裝淨重、固形量、完整成分與營養標示，確認是否申請第 29／43 類商標。</li>
+    </ol>
+  </div>
+
+  <footer>
+    <div>東漢食補｜周家宇提案　新北市新莊區壽山路109-1號　0989-322-205</div>
+    <div>提案_周家宇_2026-11／index.html　・　<a href="交付備忘_2026-11.html" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none">交付備忘</a>　・　<a href="提案檢核_2026-11.html" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none">上線檢核</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

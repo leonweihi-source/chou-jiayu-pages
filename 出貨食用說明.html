@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>東漢食補｜周家宇提案｜出貨食用說明（三品項通用 A5）</title>
+<style>
+  :root{--paper:#F5EDDC;--paper2:#EADCC0;--ink:#211D19;--red:#A32B20;--red2:#7E1D16;--gold:#B08D3F;--brown:#5C3B24;}
+  @page{size:A5 portrait;margin:0;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:#1e1e1e;color:var(--ink);
+    font-family:"Microsoft JhengHei","PingFang TC",sans-serif;
+    display:flex;flex-direction:column;align-items:center;gap:6mm;padding:8mm 0 14mm;
+  }
+  .kai{font-family:"DFKai-SB","標楷體","KaiTi",serif;}
+  .noprint{
+    display:flex;align-items:center;gap:10px;
+    background:#2a2420;color:var(--paper);padding:8px 14px;border-radius:4px;
+    border:1px solid rgba(176,141,63,.4);font-size:12.5px;
+  }
+  .noprint button{
+    background:var(--red);color:#F7EEDC;border:0;padding:6px 14px;border-radius:3px;
+    cursor:pointer;font-size:12.5px;letter-spacing:.08em;font-family:inherit;
+  }
+  .noprint button:hover{background:var(--red2);}
+  .sheet{
+    width:148mm;height:210mm;background:var(--paper);position:relative;overflow:hidden;
+    box-shadow:0 6mm 18mm rgba(0,0,0,.45);
+    padding:7.5mm 8.5mm 6.5mm;
+    display:flex;flex-direction:column;
+    background-image:
+      radial-gradient(ellipse at 50% 0%, rgba(176,141,63,.09), transparent 65%),
+      repeating-linear-gradient(0deg, rgba(120,90,50,.04) 0 1px, transparent 1px 3px);
+  }
+  .frame{position:absolute;inset:3.8mm;border:.35mm solid rgba(163,43,32,.48);pointer-events:none;}
+  .frame::after{content:"";position:absolute;inset:1.1mm;border:.18mm solid rgba(176,141,63,.38);}
+
+  .head{display:flex;align-items:center;justify-content:space-between;gap:4mm;padding-bottom:3mm;border-bottom:.35mm solid rgba(163,43,32,.45);}
+  .brand-wrap{display:flex;align-items:center;gap:2.8mm;}
+  .brand-wrap img{width:10.5mm;height:10.5mm;object-fit:contain;}
+  .brand-wrap .bname{font-size:5.6mm;letter-spacing:.16em;line-height:1.1;}
+  .brand-wrap .ben{font-family:Georgia,serif;font-size:1.85mm;letter-spacing:.26em;color:var(--brown);margin-top:.6mm;}
+  .tagbox{text-align:right;}
+  .tagbox .pill{display:inline-block;background:var(--red);color:#F7EEDC;font-size:2.3mm;letter-spacing:.12em;padding:.9mm 2.6mm;}
+  .tagbox .sub{font-size:1.95mm;color:var(--brown);margin-top:1mm;letter-spacing:.05em;}
+
+  .intro{margin-top:3.2mm;}
+  .intro h1{font-size:6.2mm;font-weight:400;letter-spacing:.1em;line-height:1.2;color:var(--ink);}
+  .intro h1 span{color:var(--red);}
+  .prep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4mm;margin-top:2.4mm;}
+  .prep{background:rgba(255,255,255,.58);border:.22mm solid rgba(92,59,36,.22);padding:2.2mm 2.6mm;border-radius:1mm;}
+  .prep .pt{font-size:2.45mm;font-weight:700;color:var(--red2);letter-spacing:.04em;margin-bottom:.7mm;}
+  .prep p{font-size:2.05mm;line-height:1.5;color:#3f3226;}
+
+  .sec-t{display:flex;align-items:center;gap:2.5mm;margin-top:3.2mm;margin-bottom:2.2mm;}
+  .sec-t b{font-size:3.2mm;font-weight:400;letter-spacing:.14em;color:var(--brown);white-space:nowrap;}
+  .sec-t span{flex:1;height:.25mm;background:linear-gradient(to right, rgba(163,43,32,.45), transparent);}
+
+  .pots{display:flex;flex-direction:column;gap:2.5mm;flex:1;}
+  .pot{
+    display:grid;grid-template-columns:28mm 1fr;gap:3.2mm;
+    background:rgba(255,252,244,.75);border:.25mm solid rgba(92,59,36,.24);
+    padding:2.3mm 2.8mm;border-radius:1mm;
+  }
+  .pot.hl{background:#fffaf0;border:.35mm solid rgba(163,43,32,.55);}
+  .pot .pic{width:28mm;height:24.5mm;overflow:hidden;border-radius:.6mm;background:#231F1C;align-self:center;}
+  .pot .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 55%;}
+  .pot .info{display:flex;flex-direction:column;justify-content:center;}
+  .pot .row1{display:flex;align-items:baseline;gap:2mm;flex-wrap:wrap;}
+  .pot .row1 h2{font-size:4.4mm;font-weight:400;letter-spacing:.08em;color:var(--ink);}
+  .pot .row1 .spec{font-size:2mm;color:var(--brown);letter-spacing:.04em;}
+  .pot .row1 .alert-tag{
+    background:var(--red);color:#F7EEDC;font-size:1.95mm;padding:.35mm 1.6mm;
+    letter-spacing:.06em;margin-left:auto;
+  }
+  .pot ul{list-style:none;margin-top:1.1mm;display:flex;flex-direction:column;gap:.8mm;}
+  .pot li{font-size:2.12mm;line-height:1.48;color:#33281f;}
+  .pot li b{color:var(--red2);font-weight:700;margin-right:1mm;}
+
+  .foot-box{
+    margin-top:auto;padding-top:2.4mm;border-top:.3mm solid rgba(92,59,36,.32);
+    display:grid;grid-template-columns:1fr 19mm;gap:3mm;align-items:center;
+  }
+  .store-note .save{
+    background:#231F1C;color:var(--paper);font-size:2.05mm;line-height:1.5;
+    padding:1.5mm 2.3mm;border-radius:.6mm;margin-bottom:1.3mm;
+  }
+  .store-note .save b{color:#D4B15E;font-weight:700;}
+  .store-note .dis{font-size:1.85mm;line-height:1.45;color:#6c5b47;}
+  .store-note .co{font-size:2.05mm;line-height:1.45;color:var(--ink);margin-top:.9mm;font-weight:700;}
+  .qrbox{text-align:center;}
+  .qrbox img{width:16.5mm;height:16.5mm;display:block;margin:0 auto;border:.2mm solid rgba(92,59,36,.25);background:#fff;padding:.6mm;}
+  .qrbox span{display:block;font-size:1.75mm;color:var(--brown);margin-top:.6mm;letter-spacing:.03em;}
+
+  @media print{
+    body{background:none;padding:0;gap:0;}
+    .noprint{display:none;}
+    .sheet{box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="noprint">
+  <span>A5 隨箱出貨食用說明（148 × 210 mm・三鍋物通用單面）</span>
+  <button type="button" onclick="window.print()">列印／另存 PDF</button>
+</div>
+
+<section class="sheet">
+  <div class="frame"></div>
+
+  <header class="head">
+    <div class="brand-wrap">
+      <img src="assets/brand_mark_store.svg" alt="東漢食補標誌佔位">
+      <div>
+        <div class="bname kai">東漢食補</div>
+        <div class="ben">DONGHAN SHIBU</div>
+      </div>
+    </div>
+    <div class="tagbox">
+      <div class="pill kai">隨箱附贈・食用與加熱說明</div>
+      <div class="sub">每包 2 人份 ｜ －18°C 冷凍保存 12 個月</div>
+    </div>
+  </header>
+
+  <div class="intro">
+    <h1 class="kai">一鍋老方子，<span>開煮三要點</span></h1>
+    <div class="prep-grid">
+      <div class="prep">
+        <div class="pt">① 先完全解凍再煮</div>
+        <p>前一天移至冷藏（8–12 小時）或連袋流水解凍約 30–40 分鐘；<b>切勿帶冰塊直接大火加熱</b>，避免湯底焦糊。</p>
+      </div>
+      <div class="prep">
+        <div class="pt">② 拆袋倒鍋・勿帶袋微波</div>
+        <p>請務必剪開包裝倒入鍋中烹煮，<b>不可將包裝袋直接放入微波爐</b>或電鍋內乾烤。</p>
+      </div>
+      <div class="prep">
+        <div class="pt">③ 原湯濃縮・濃淡可調</div>
+        <p>湯頭為濃縮原汁，煮滾後可依個人鹹淡口味酌加開水或米酒 <b>150–300 ml</b> 調整。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-t">
+    <b class="kai">各品項烹煮與搭配指南</b>
+    <span></span>
+  </div>
+
+  <div class="pots">
+    <article class="pot">
+      <div class="pic"><img src="assets/processed/food_mutton_hd.jpg" alt="紅燒羊肉爐"></div>
+      <div class="info">
+        <div class="row1">
+          <h2 class="kai">紅燒羊肉爐</h2>
+          <span class="spec">1,200g（固形量 380g）・帶皮土羊肉・微麻油香</span>
+        </div>
+        <ul>
+          <li><b>煮法</b>完全解凍後倒鍋，中火煮滾再轉<b>小火慢滾 8–10 分鐘</b>，讓帶皮羊肉更軟 Q 入味。</li>
+          <li><b>加料</b>高麗菜、凍豆腐、豆皮、玉米、茼蒿、冬粉或手工麵線；可依喜好沾豆腐乳食用。</li>
+          <li><b>提醒</b>本品含大豆、小麥、酒類製品，烹煮時請留意火候。</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="pot">
+      <div class="pic"><img src="assets/processed/food_duck_hd.jpg" alt="薑母鴨"></div>
+      <div class="info">
+        <div class="row1">
+          <h2 class="kai">薑母鴨</h2>
+          <span class="spec">附湯 1,200ml・紅面番鴨・老薑黑麻油</span>
+        </div>
+        <ul>
+          <li><b>煮法</b>完全解凍後倒鍋，中火煮滾轉<b>小火滾煮 8–10 分鐘</b>，讓老薑麻油香氣充分融入食材。</li>
+          <li><b>加料</b>高麗菜、米血糕、腐竹／豆皮、金針菇、凍豆腐、麵線；起鍋前可依喜好淋少許米酒提香。</li>
+          <li><b>提醒</b>含麻油、酒類製品；孕婦、體質燥熱或對酒精敏感者請酌量。</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="pot hl">
+      <div class="pic"><img src="assets/processed/food_herb_chicken_hd.jpg" alt="何首烏雞湯"></div>
+      <div class="info">
+        <div class="row1">
+          <h2 class="kai">何首烏雞湯</h2>
+          <span class="spec">藥膳溫補不燥・2 人份</span>
+          <span class="alert-tag">純湯底・無肉塊</span>
+        </div>
+        <ul>
+          <li><b>自備雞肉</b>本品為<b>純藥膳湯底（不含雞肉塊）</b>，建議自備帶骨土雞半隻或雞腿肉 2 支（約 400–600g）。</li>
+          <li><b>煮法</b>雞肉先以滾水川燙去血水，再與解凍湯底同煮，水滾後轉<b>小火慢燉 15–20 分鐘</b>至雞肉熟透即可（純喝湯則滾 8 分鐘）。</li>
+          <li><b>加料</b>鮮香菇、杏鮑菇、高麗菜、山藥、紅棗枸杞、麵線。</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+
+  <footer class="foot-box">
+    <div class="store-note">
+      <div class="save">
+        <b>保存注意：</b>未拆封請冷凍於 <b>－18°C 以下</b>（保存 12 個月）；<b>解凍後請於 24 小時內煮食完畢，切勿重複冷凍。</b>
+      </div>
+      <div class="dis">本產品為一般食品，非藥品，不具醫療效能。孕婦、慢性病患者及對酒精或特定食材敏感者請酌量食用。</div>
+      <div class="co">東漢食補　新北市新莊區壽山路109-1號　電話 0989-322-205　LINE：〔待客戶提供〕</div>
+    </div>
+    <div class="qrbox">
+      <img src="assets/qr_placeholder.svg" alt="官網與回購 QRcode">
+      <span>掃碼回購・線上訂購</span>
+    </div>
+  </footer>
+</section>
+
+</body>
+</html>

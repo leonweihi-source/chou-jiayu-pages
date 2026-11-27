@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>東漢食補 外盒包裝｜冷凍熟食・宅配版</title>
+<style>
+  @page{size:297mm 210mm;margin:0;}
+  :root{--bg:#231F1C;--ink:#211D19;--paper:#F5EDDC;--gold:#B08D3F;--gold2:#D4B15E;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#1a1715;font-family:"Microsoft JhengHei",sans-serif;padding:10mm;-webkit-font-smoothing:antialiased;color:var(--paper);}
+  .kai{font-family:"DFKai-SB","標楷體",serif;}
+
+  /* ---------- 盒面 ---------- */
+  .face{
+    width:240mm;height:155mm;background:var(--bg);position:relative;overflow:hidden;
+    box-shadow:0 5mm 14mm rgba(0,0,0,.6);
+  }
+  .face::before{content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(100% 80% at 15% 0%, rgba(212,177,94,.12), transparent 60%),
+      radial-gradient(80% 70% at 95% 100%, rgba(212,177,94,.08), transparent 70%),
+      repeating-linear-gradient(0deg, rgba(212,177,94,.035) 0 1px, transparent 1px 4px);}
+  .frame{position:absolute;inset:7mm;border:.3mm solid rgba(176,141,63,.65);}
+  .frame::after{content:"";position:absolute;inset:1.4mm;border:.2mm solid rgba(176,141,63,.25);}
+  .photo{position:absolute;right:0;top:0;width:128mm;height:155mm;}
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:54% 42%;filter:saturate(.96) contrast(1.05);}
+  .photo::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(to right, var(--bg) 0%, rgba(35,31,28,.7) 9%, transparent 26%),
+               linear-gradient(to top, rgba(0,0,0,.35), transparent 40%);}
+
+  .mark{position:absolute;left:14mm;top:12mm;width:26mm;opacity:.95;}
+  .brand{position:absolute;left:46mm;top:15mm;font-size:6mm;letter-spacing:.2em;color:var(--paper);}
+  .brand small{display:block;font-size:1.9mm;letter-spacing:.34em;color:var(--gold2);margin-top:1.4mm;font-family:Georgia,serif;}
+
+  .pname{position:absolute;left:15mm;top:43mm;writing-mode:vertical-rl;font-size:13.6mm;letter-spacing:.1em;line-height:1.12;color:var(--paper);}
+  .pen{position:absolute;left:33mm;top:45mm;writing-mode:vertical-rl;font-size:1.9mm;letter-spacing:.34em;color:var(--gold);font-family:Georgia,serif;}
+  .psub{position:absolute;left:15mm;top:137mm;font-size:3.2mm;letter-spacing:.08em;color:rgba(245,237,220,.8);}
+  .pline{position:absolute;left:15mm;top:131mm;width:38mm;height:.25mm;background:var(--gold);opacity:.7;}
+  .seal{position:absolute;left:170mm;top:14mm;width:13mm;height:13mm;border:.8mm solid var(--gold);color:var(--gold2);
+        font-size:6mm;display:flex;align-items:center;justify-content:center;background:rgba(35,31,28,.85);}
+  .strip{position:absolute;right:0;top:0;width:9mm;height:155mm;
+         background:linear-gradient(180deg,var(--gold2),var(--gold));color:#231F1C;
+         writing-mode:vertical-rl;font-size:3.2mm;letter-spacing:.42em;display:flex;align-items:center;justify-content:center;padding-top:14mm;}
+  .chips{position:absolute;left:15mm;top:124mm;display:flex;gap:1.6mm;}
+  .chips i{font-style:normal;font-size:2.3mm;border:.2mm solid rgba(176,141,63,.6);color:var(--gold2);padding:.8mm 2mm;letter-spacing:.08em;background:rgba(35,31,28,.7);}
+  .storeline{position:absolute;left:15mm;top:147mm;font-size:2.2mm;letter-spacing:.08em;color:var(--gold2);}
+  .boxqr{position:absolute;left:86mm;top:126mm;width:16mm;height:16mm;background:#fff;padding:1mm;border-radius:.5mm;}
+  .boxqr img{width:100%;height:100%;object-fit:contain;}
+
+  /* 側面 85x155 */
+  .side{width:85mm;height:155mm;background:var(--bg);position:relative;overflow:hidden;box-shadow:0 4mm 10mm rgba(0,0,0,.5);}
+  .side .frame{inset:5mm;}
+  .side .mark{width:14mm;left:9mm;top:9mm;}
+  .side .t{position:absolute;left:9mm;top:30mm;font-size:5mm;letter-spacing:.16em;}
+  .side .b{position:absolute;left:9mm;top:41mm;font-size:1.7mm;letter-spacing:.2em;color:var(--gold2);font-family:Georgia,serif;}
+  .side .kv{position:absolute;left:9mm;right:9mm;bottom:24mm;font-size:1.9mm;line-height:1.75;color:rgba(245,237,220,.72);}
+  .side .bc{position:absolute;left:9mm;bottom:7mm;width:28mm;height:10mm;padding:1mm;background:#fff;border-radius:.4mm;
+    background-image:repeating-linear-gradient(90deg,#211D19 0 1px,#fff 1px 1.6px);background-clip:content-box;}
+  .side .vname{position:absolute;right:8mm;top:26mm;writing-mode:vertical-rl;font-size:9mm;letter-spacing:.16em;line-height:1.1;}
+  .side .exp{position:absolute;right:9mm;bottom:7mm;font-size:1.8mm;letter-spacing:.06em;color:rgba(245,237,220,.72);text-align:right;}
+
+  h4.lab{font-size:3mm;letter-spacing:.2em;color:var(--gold2);margin-bottom:3mm;font-weight:400;}
+
+  /* ---------- 展開圖 / 外箱 ---------- */
+  .net-wrap{width:258.4mm;height:123.5mm;overflow:hidden;background:#141210;}
+  .net-inner{transform:scale(.38);transform-origin:top left;width:680mm;height:325mm;display:flex;flex-direction:column;}
+  .nrow{display:flex;}
+  .np{border:.35mm dashed rgba(212,177,94,.35);display:flex;align-items:center;justify-content:center;
+      color:var(--paper);font-size:8mm;letter-spacing:.18em;background:#26211d;position:relative;}
+  .np b{font-weight:400;font-size:5mm;letter-spacing:.06em;position:absolute;bottom:3mm;color:rgba(245,237,220,.55);}
+  .np.main{border-style:solid;border-color:rgba(176,141,63,.85);background:#2e2823;}
+
+  .carton{width:400mm;height:300mm;background:#1b1815;position:relative;transform:scale(.45);transform-origin:top left;
+          box-shadow:0 6mm 16mm rgba(0,0,0,.5);}
+  .carton .cf{border:.4mm solid rgba(176,141,63,.7);position:absolute;inset:18mm;}
+  .carton .cn{position:absolute;left:26mm;top:26mm;font-size:34mm;letter-spacing:.14em;color:var(--gold2);}
+  .carton .csub{position:absolute;left:28mm;top:74mm;font-size:9mm;letter-spacing:.5em;color:rgba(245,237,220,.7);}
+  .carton .citem{position:absolute;left:28mm;top:92mm;font-size:8.5mm;letter-spacing:.14em;line-height:1.65;color:var(--paper);max-width:270mm;}
+  .carton .cqty{position:absolute;right:26mm;top:24mm;width:46mm;height:46mm;border:1.2mm solid var(--gold2);color:var(--gold2);
+        display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:9mm;letter-spacing:.1em;}
+  .carton .cqty span{font-size:4mm;letter-spacing:.3em;margin-top:1mm;}
+  .carton .cold{position:absolute;right:26mm;bottom:26mm;font-size:5mm;letter-spacing:.3em;color:var(--gold2);text-align:right;line-height:2;}
+  .carton .co{position:absolute;left:28mm;bottom:24mm;font-size:4mm;letter-spacing:.06em;color:rgba(245,237,220,.75);line-height:1.9;}
+  .carton .cstore{position:absolute;left:28mm;bottom:52mm;font-size:4.5mm;letter-spacing:.1em;color:var(--gold2);}
+
+  /* 折抵券 */
+  .coupon{width:180mm;height:80mm;background:var(--paper);color:var(--ink);position:relative;overflow:hidden;box-shadow:0 4mm 12mm rgba(0,0,0,.5);}
+  .coupon::before{content:"";position:absolute;inset:4mm;border:.35mm dashed var(--gold);}
+  .coupon .ct{position:absolute;left:12mm;top:12mm;font-size:9mm;letter-spacing:.16em;}
+  .coupon .cs{position:absolute;left:12mm;top:30mm;font-size:3mm;letter-spacing:.08em;color:#6b5844;line-height:1.8;}
+  .coupon .cv{position:absolute;right:16mm;top:14mm;font-family:Georgia,serif;font-size:24mm;color:var(--red,#A32B20);}
+  .coupon .cb{position:absolute;left:12mm;bottom:12mm;font-size:2.6mm;letter-spacing:.06em;color:#7a6a56;}
+  .coupon .stub{position:absolute;right:0;top:0;bottom:0;width:28mm;background:var(--bg);color:var(--gold2);
+    writing-mode:vertical-rl;font-size:3mm;letter-spacing:.3em;display:flex;align-items:center;justify-content:center;}
+  .coupon .cqr{position:absolute;left:80mm;top:13mm;width:22mm;height:22mm;background:#fff;padding:1mm;}
+  .coupon .cqr img{width:100%;height:100%;object-fit:contain;}
+  .coupon .cqr em{position:absolute;left:50%;transform:translateX(-50%);top:24mm;font-style:normal;
+    font-size:2.2mm;white-space:nowrap;color:#7a6a56;letter-spacing:.06em;}
+</style>
+</head>
+<body>
+
+<h4 class="lab">A ｜ 正面 240 × 155 mm（1:1）</h4>
+<div class="face">
+  <div class="frame"></div>
+  <div class="photo"><img src="assets/processed/food_mutton_hd.jpg" alt=""></div>
+  <img class="mark" src="assets/brand_mark_online.svg" alt="">
+  <div class="brand kai">東漢食補<small>DONGHAN SHIBU · ONLINE</small></div>
+  <div class="seal kai">凍</div>
+  <div class="pname kai">紅燒羊肉爐</div>
+  <div class="pen">BRAISED LAMB HOT POT</div>
+  <div class="chips"><i>2 人份</i><i>加熱 10 分鐘</i><i>冷凍 －18°C</i></div>
+  <div class="pline"></div>
+  <div class="psub kai">一鍋老方子，低溫直送到家。</div>
+  <div class="strip">開封加熱・十分鐘上桌</div>
+  <div class="storeline">門市：東漢食補・新莊門市　0989-322-205</div>
+  <div class="boxqr"><img src="assets/qr_placeholder.svg" alt="一頁式網頁 QRcode"></div>
+</div>
+
+<h4 class="lab" style="margin-top:10mm">B ｜ 側面 85 × 155 mm（1:1）</h4>
+<div class="side">
+  <div class="frame"></div>
+  <img class="mark" src="assets/brand_mark_online.svg" alt="">
+  <div class="t kai">東漢食補</div>
+  <div class="b">FROZEN · READY IN 10 MIN</div>
+  <div class="vname kai">紅燒羊肉爐</div>
+  <div class="kv">
+    品名　紅燒羊肉爐（冷凍調理食品）<br>
+    內容量　1,200g（固形量 380g）<br>
+    原產地　台灣　保存 －18°C 以下 12 個月<br>
+    門市　東漢食補・新莊門市
+  </div>
+  <div class="bc"></div>
+</div>
+
+<h4 class="lab" style="margin-top:10mm">C ｜ 盒型展開圖（一體成型 · 糊盒）</h4>
+<div class="net-wrap">
+  <div class="net-inner">
+    <div class="nrow" style="height:85mm">
+      <div class="np" style="width:15mm"></div>
+      <div class="np" style="width:85mm">防塵翼</div>
+      <div class="np main" style="width:240mm">上蓋<b>240 × 85</b></div>
+      <div class="np" style="width:85mm">防塵翼</div>
+      <div class="np main" style="width:240mm">下蓋<b>240 × 85</b></div>
+      <div class="np" style="width:15mm"></div>
+    </div>
+    <div class="nrow" style="height:155mm">
+      <div class="np" style="width:15mm">糊</div>
+      <div class="np" style="width:85mm">側面<b>85 × 155</b></div>
+      <div class="np main" style="width:240mm">正面<b>240 × 155</b></div>
+      <div class="np" style="width:85mm">側面<b>85 × 155</b></div>
+      <div class="np main" style="width:240mm">背面<b>240 × 155</b></div>
+      <div class="np" style="width:15mm">糊</div>
+    </div>
+  </div>
+</div>
+
+<h4 class="lab" style="margin-top:10mm">D ｜ 團購外箱 8 入（400 × 300 × 200 mm · 單色印刷）</h4>
+<div style="width:180mm;height:135mm;overflow:hidden">
+  <div class="carton">
+    <div class="cf"></div>
+    <div class="cn kai">東漢食補</div>
+    <div class="csub">DONGHAN SHIBU</div>
+    <div class="citem kai">□ 紅燒羊肉爐　□ 薑母鴨<br>□ 何首烏雞湯　□ 8 入混搭</div>
+    <div class="cqty kai">8<span>入</span></div>
+    <div class="cstore kai">門市：東漢食補・新莊門市</div>
+    <div class="cold">－18°C 冷凍<br>此面向上　請勿重壓</div>
+    <div class="co">東漢食補　冷凍熟食・團購宅配<br>新北市新莊區壽山路109-1號　0989-322-205</div>
+  </div>
+</div>
+
+<h4 class="lab" style="margin-top:10mm">E ｜ 何首烏雞湯 正面 240 × 155 mm（1:1）</h4>
+<div class="face">
+  <div class="frame"></div>
+  <div class="photo"><img src="assets/processed/food_herb_chicken_hd.jpg" alt=""></div>
+  <img class="mark" src="assets/brand_mark_online.svg" alt="">
+  <div class="brand kai">東漢食補<small>DONGHAN SHIBU · ONLINE</small></div>
+  <div class="seal kai">補</div>
+  <div class="pname kai">何首烏雞湯</div>
+  <div class="pen">POLYGONUM CHICKEN SOUP</div>
+  <div class="chips"><i>純湯底・無肉塊</i><i>2 人份</i><i>冷凍 －18°C</i></div>
+  <div class="pline"></div>
+  <div class="psub kai">可自備半隻雞或雞腿肉入鍋同燉。</div>
+  <div class="strip">開封加熱・十分鐘上桌</div>
+  <div class="storeline">門市：東漢食補・新莊門市　0989-322-205</div>
+  <div class="boxqr"><img src="assets/qr_placeholder.svg" alt="一頁式網頁 QRcode"></div>
+</div>
+
+<h4 class="lab" style="margin-top:10mm">F ｜ 薑母鴨 正面 240 × 155 mm（1:1）</h4>
+<div class="face">
+  <div class="frame"></div>
+  <div class="photo"><img src="assets/processed/food_duck_hd.jpg" alt=""></div>
+  <img class="mark" src="assets/brand_mark_online.svg" alt="">
+  <div class="brand kai">東漢食補<small>DONGHAN SHIBU · ONLINE</small></div>
+  <div class="seal kai">溫</div>
+
+  <div class="pname kai">薑母鴨</div>
+  <div class="pen">GINGER DUCK SOUP</div>
+
+  <div class="chips"><i>2 人份</i><i>加熱 10 分鐘</i><i>冷凍 －18°C</i></div>
+  <div class="pline"></div>
+  <div class="psub kai">老薑麻油，低溫直送到家。</div>
+
+  <div class="strip">開封加熱・十分鐘上桌</div>
+  <div class="storeline">門市：東漢食補・新莊門市　0989-322-205</div>
+  <div class="boxqr"><img src="assets/qr_placeholder.svg" alt="一頁式網頁 QRcode"></div>
+</div>
+
+<h4 class="lab" style="margin-top:10mm">G ｜ 包裹內附・回店折抵券 180 × 80 mm</h4>
+<div class="coupon">
+  <div class="ct kai">回店折抵券</div>
+  <div class="cs">憑券至「東漢食補」新莊門市<br>現煮鍋物折抵 50 元・每筆限用一張</div>
+  <div class="cv">$50</div>
+  <div class="cb">東漢食補（冷凍宅配）　・　門市：東漢食補　新北市新莊區壽山路109-1號　0989-322-205</div>
+  <div class="cqr"><img src="assets/qr_placeholder.svg" alt="一頁式網頁 QRcode"><em>掃碼看一頁式</em></div>
+  <div class="stub">宅配 → 門市</div>
+</div>
+
+</body>
+</html>

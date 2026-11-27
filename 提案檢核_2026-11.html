@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>東漢食補｜周家宇提案｜上線啟動檢核表</title>
+<style>
+  :root{--paper:#F5EDDC;--ink:#211D19;--red:#A32B20;--gold:#B08D3F;--brown:#5C3B24;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#1c1916;color:var(--ink);font-family:"Microsoft JhengHei","PingFang TC",sans-serif;padding:24px 16px 48px;}
+  .kai{font-family:"DFKai-SB","標楷體","KaiTi",serif;}
+  .wrap{max-width:980px;margin:0 auto;}
+  header{background:var(--paper);padding:26px 30px;display:flex;align-items:center;gap:20px;border-bottom:1.5px solid var(--red);flex-wrap:wrap;}
+  header img{width:56px;}
+  header h1{font-size:28px;font-weight:400;letter-spacing:.12em;}
+  header .sub{font-size:12px;letter-spacing:.2em;color:var(--brown);margin-top:4px;}
+  h2{color:var(--gold);font-size:13px;letter-spacing:.22em;margin:26px 0 12px;font-weight:400;border-left:3px solid var(--gold);padding-left:10px;}
+  .card{background:var(--paper);padding:20px 24px;}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;line-height:1.85;}
+  td,th{padding:8px 6px;border-bottom:1px solid rgba(92,59,36,.15);vertical-align:top;text-align:left;}
+  th{color:var(--red);font-weight:400;width:180px;}
+  .todo li{margin-left:20px;line-height:2;font-size:13.5px;}
+  footer{margin-top:26px;text-align:center;color:rgba(245,237,220,.5);font-size:12px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="assets/brand_mark_store.svg" alt="東漢食補標誌佔位">
+    <div>
+      <h1 class="kai">專案導入與上線檢核表</h1>
+      <div class="sub">東漢食補｜周家宇提案 ／ 專屬提案（客戶：周家宇）</div>
+    </div>
+  </header>
+
+  <h2>01　客戶基本設定</h2>
+  <div class="card">
+    <table>
+      <tr><th>方案類型</th><td>單一品牌（東漢食補）× 雙通路配色（門市現煮朱紅 ＋ 冷凍宅配黑金）</td></tr>
+      <tr><th>客戶／聯絡人</th><td>周家宇</td></tr>
+      <tr><th>門市地址</th><td>新北市新莊區壽山路109-1號</td></tr>
+      <tr><th>聯絡電話</th><td>0989-322-205（市話：〔市話待補〕）</td></tr>
+      <tr><th>LINE / 收單信箱</th><td>LINE：〔待客戶提供〕　／　Email：〔待客戶提供〕</td></tr>
+      <tr><th>固定品牌名</th><td>東漢食補（門市／冷凍宅配共用）</td></tr>
+    </table>
+  </div>
+
+  <h2>02　套版與正式上線清單</h2>
+  <div class="card">
+    <ol class="todo">
+      <li><b>正式 LOGO 置換</b>：製作「東漢食補」正式 LOGO（朱紅底版／黑金底版）並替換目前 SVG 佔位圖。</li>
+      <li><b>聯絡管道綁定</b>：填入正式 LINE ID 與訂單接收信箱（<code>線上訂購.html</code> 中的 <code>ORDER_NOTIFY_EMAIL</code>），並完成 FormSubmit 初次信箱啟用或 Netlify Forms 通知設定。</li>
+      <li><b>網域與 QRcode 生成</b>：將 <code>一頁式網頁.html</code> 與 <code>線上訂購.html</code> 部署上線後，更新 <code>assets/make_qr.py</code> 並置換所有設計稿的 QRcode。</li>
+      <li><b>食品法規與包材確認</b>：補齊各口味（紅燒羊肉爐／薑母鴨／何首烏雞湯）淨重、固形量、完整成分、過敏原與營養標示後再送印。</li>
+      <li><b>商業攝影（建議）</b>：正式大量印製外箱前，補拍品牌實拍產品照與肉塊特寫高解析圖檔。</li>
+    </ol>
+  </div>
+
+  <footer>提案_周家宇_2026-11 ／ 提案檢核_2026-11.html</footer>
+</div>
+</body>
+</html>

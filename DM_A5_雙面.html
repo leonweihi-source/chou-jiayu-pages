@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>東漢食補 DM A5 雙面｜門市版</title>
+<style>
+  @page { size: 148mm 210mm; margin: 0; }
+  :root{
+    --paper:#F5EDDC; --paper2:#EADCC0; --ink:#211D19; --red:#A32B20;
+    --red2:#7E1D16; --gold:#B08D3F; --brown:#5C3B24;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:#2b2b2b; font-family:"Microsoft JhengHei","PingFang TC",sans-serif;
+    display:flex; gap:14mm; padding:14mm; align-items:flex-start;
+    -webkit-font-smoothing:antialiased;
+  }
+  .kai{font-family:"DFKai-SB","標楷體","KaiTi",serif;}
+  .sheet{
+    width:148mm; height:210mm; background:var(--paper); position:relative;
+    overflow:hidden; box-shadow:0 6mm 16mm rgba(0,0,0,.5); flex:none;
+    color:var(--ink);
+  }
+  /* 紙紋 */
+  .sheet::before{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.55;
+    background:
+      radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,.55), transparent 60%),
+      radial-gradient(90% 60% at 80% 100%, rgba(160,120,60,.16), transparent 70%),
+      repeating-linear-gradient(0deg, rgba(120,90,50,.045) 0 1px, transparent 1px 3px);
+  }
+  .frame{position:absolute; inset:7mm; border:.35mm solid rgba(163,43,32,.55); pointer-events:none;}
+  .frame::after{content:""; position:absolute; inset:1.6mm; border:.2mm solid rgba(163,43,32,.22);}
+
+  /* ---------- 封面 ---------- */
+  .top{padding:11mm 12mm 0; display:flex; align-items:center; gap:5mm;}
+  .top img{width:26mm; filter:contrast(1.05);}
+  .brandbox{border-left:.5mm solid var(--red); padding-left:5mm;}
+  .brand-cn{font-size:9.5mm; letter-spacing:.18em; line-height:1;}
+  .brand-en{font-size:2.5mm; letter-spacing:.34em; color:var(--brown); margin-top:2mm; font-family:Georgia,serif;}
+  .brand-tag{font-size:3mm; letter-spacing:.2em; color:var(--red); margin-top:2.5mm;}
+
+  h1{
+    font-size:12.6mm; line-height:1.22; letter-spacing:.04em; margin:8mm 12mm 0;
+    font-weight:400;
+  }
+  h1 em{font-style:normal; color:var(--red); position:relative;}
+  h1 em::after{content:""; position:absolute; left:-1mm; right:-1mm; bottom:.8mm; height:2.4mm; background:rgba(163,43,32,.13);}
+  .sub{font-size:3.5mm; line-height:1.95; letter-spacing:.06em; margin:4.5mm 12mm 0; color:#4a3a2b;}
+  .seal{
+    position:absolute; right:13mm; top:64mm; width:15mm; padding:2.6mm 0;
+    border:.9mm solid var(--red); color:var(--red); text-align:center;
+    font-size:4.6mm; line-height:1.15; letter-spacing:.1em; writing-mode:vertical-rl;
+    height:30mm; display:flex; align-items:center; justify-content:center;
+  }
+  .trust{
+    margin:3.2mm 12mm 0;
+    display:flex; gap:3mm; align-items:center; font-size:2.45mm; letter-spacing:.12em; color:#6b5844;
+  }
+  .trust i{font-style:normal; width:1mm; height:1mm; background:var(--red); border-radius:50%; opacity:.65;}
+  .hero{
+    position:absolute; left:0; right:0; bottom:18mm; height:96mm; overflow:hidden;
+  }
+  .hero img{width:100%; height:100%; object-fit:cover; object-position:50% 35%; filter:saturate(.92) contrast(1.04);}
+  .hero::after{
+    content:""; position:absolute; inset:0;
+    background:
+      linear-gradient(to bottom, var(--paper) 0%, rgba(245,237,220,.92) 8%, rgba(245,237,220,0) 26%),
+      linear-gradient(to right, rgba(245,237,220,.85) 0%, transparent 22%, transparent 78%, rgba(245,237,220,.85) 100%),
+      radial-gradient(70% 60% at 50% 55%, transparent 40%, rgba(92,59,36,.35) 100%);
+  }
+  .hero-cap{
+    position:absolute; left:9mm; bottom:21mm; z-index:3;
+    background:rgba(245,237,220,.93); padding:3.4mm 4.2mm; width:58mm;
+    border-left:.7mm solid var(--red);
+  }
+  .hero-cap .dish{font-size:6.2mm; letter-spacing:.14em; line-height:1.3;}
+  .hero-cap .dish small{display:block; font-size:2.3mm; letter-spacing:.26em; color:var(--red); margin-top:1.2mm; font-family:Georgia,serif;}
+  .hero-cap .note{font-size:2.6mm; line-height:1.75; color:#5b4a38; margin-top:2.4mm; letter-spacing:.02em;}
+
+  .band{
+    position:absolute; left:0; right:0; bottom:0; height:18mm; background:var(--red);
+    color:#F7EEDC; display:flex; align-items:center; justify-content:space-between;
+    padding:0 12mm;
+  }
+  .band .item{font-size:3.1mm; letter-spacing:.1em;}
+  .band .big{font-size:4.6mm; letter-spacing:.14em;}
+  .band .sep{width:.2mm; height:6mm; background:rgba(255,255,255,.35);}
+
+  .reg{position:absolute; left:12mm; bottom:19.5mm; font-size:2.1mm; color:rgba(92,59,36,.7); letter-spacing:.05em;}
+
+  /* ---------- 封底 ---------- */
+  .back-head{padding:10mm 12mm 0; display:flex; align-items:flex-end; justify-content:space-between;}
+  .back-head h2{font-size:7.4mm; font-weight:400; letter-spacing:.12em; line-height:1.2;}
+  .back-head h2 span{color:var(--red);}
+  .back-head .en{font-size:2.4mm; letter-spacing:.28em; color:var(--brown); font-family:Georgia,serif; padding-bottom:1mm;}
+  .rule{height:.3mm; background:linear-gradient(to right, var(--red), rgba(163,43,32,.15)); margin:4mm 12mm 0;}
+
+  .cards{display:flex; gap:3mm; padding:4.5mm 12mm 0;}
+  .card{flex:1; min-width:0; background:rgba(255,255,255,.42); border:.2mm solid rgba(92,59,36,.18); padding:2.4mm;}
+  .card .ph{width:100%; height:23mm; overflow:hidden; border-radius:1mm;}
+  .card .ph img{width:100%; height:100%; object-fit:cover; object-position:50% 58%; transform:scale(1.28);}
+  .card h3{font-size:4.3mm; margin-top:2mm; letter-spacing:.04em; line-height:1.2;}
+  .card h3 small{display:block; font-size:1.85mm; letter-spacing:.18em; color:var(--brown); margin-top:.9mm; font-family:Georgia,serif;}
+  .card p{font-size:2.2mm; line-height:1.6; margin-top:1.6mm; color:#4c3c2c;}
+  .card .tags{margin-top:1.4mm; display:flex; flex-wrap:wrap; gap:.8mm;}
+  .card .tags i{font-style:normal; font-size:1.9mm; border:.18mm solid rgba(163,43,32,.45); color:var(--red2); padding:.4mm 1.1mm; letter-spacing:.03em;}
+
+  .how{padding:4.5mm 12mm 0;}
+  .how-t{font-size:3.6mm; letter-spacing:.14em; display:flex; align-items:center; gap:2.5mm;}
+  .how-t::after{content:""; flex:1; height:.2mm; background:rgba(92,59,36,.25);}
+  .steps{display:flex; gap:3mm; margin-top:2.6mm;}
+  .step{flex:1; display:flex; gap:2mm; align-items:flex-start;}
+  .step b{font-family:Georgia,serif; font-size:6mm; color:rgba(163,43,32,.35); line-height:1; font-weight:400;}
+  .step span{font-size:2.5mm; line-height:1.6; color:#4c3c2c; letter-spacing:.02em;}
+
+  .price{padding:5mm 12mm 0;}
+  .ptable{width:100%; border-collapse:collapse;}
+  .ptable th{font-size:2.5mm; font-weight:400; letter-spacing:.14em; color:#6b5844; text-align:left; padding-bottom:1.6mm; border-bottom:.3mm solid rgba(92,59,36,.3);}
+  .ptable td{padding:1.9mm 0; border-bottom:.15mm solid rgba(92,59,36,.16); font-size:3mm; letter-spacing:.03em;}
+  .ptable td.n{font-family:Georgia,serif; font-size:4.4mm; text-align:right;}
+  .ptable td.n s{font-size:2.4mm; color:#9a8874; margin-left:1mm;}
+  .ptable tr.hl td{background:rgba(163,43,32,.06);}
+  .ptable tr.hl td:first-child{padding-left:2mm;}
+  .badge{display:inline-block; background:var(--red); color:#F7EEDC; font-size:2.2mm; padding:.6mm 1.6mm; letter-spacing:.08em; margin-left:1.5mm; vertical-align:1px;}
+  .shipnote{font-size:2.15mm;line-height:1.7;color:var(--red2);margin-top:2.2mm;letter-spacing:.02em;}
+
+  .qrwrap{padding:4.5mm 12mm 0; display:flex; align-items:center; gap:4mm;}
+  .qr{width:20mm; height:20mm; flex:none; border:.3mm dashed rgba(92,59,36,.55);
+      display:flex; align-items:center; justify-content:center; position:relative;}
+  .qr span{font-family:Georgia,serif; font-size:4.6mm; letter-spacing:.16em; color:rgba(92,59,36,.55);}
+  .qr img{width:100%;height:100%;object-fit:contain;}
+  .qr::before,.qr::after{content:""; position:absolute; width:3.4mm; height:3.4mm; border:.5mm solid var(--red);}
+  .qr::before{top:-.5mm; left:-.5mm; border-right:0; border-bottom:0;}
+  .qr::after{bottom:-.5mm; right:-.5mm; border-left:0; border-top:0;}
+  .qrwrap .txt{font-size:2.6mm; line-height:1.7; letter-spacing:.03em; color:#4c3c2c;}
+  .qrwrap .txt b{font-size:3.3mm; letter-spacing:.08em; display:block; margin-bottom:1mm;}
+
+  .foot{position:absolute; left:0; right:0; bottom:0; padding:3.6mm 12mm 4.2mm; border-top:.2mm solid rgba(92,59,36,.25); background:rgba(234,220,192,.45);}
+  .foot .row{display:flex; gap:6mm; font-size:2mm; line-height:1.6; color:#5b4a38; letter-spacing:.01em;}
+  .foot .row div{flex:1;}
+  .foot .dis{font-size:1.85mm; color:#7a6952; margin-top:1.6mm; letter-spacing:.02em; line-height:1.5;}
+  .foot .co{font-size:1.9mm; color:#3f3226; margin-top:1.4mm; letter-spacing:.03em; line-height:1.5;}
+</style>
+</head>
+<body>
+
+<!-- ================= 正面 ================= -->
+<section class="sheet" id="front">
+  <div class="frame"></div>
+
+  <div class="top">
+    <img src="assets/brand_mark_store.svg" alt="東漢食補 標誌佔位">
+    <div class="brandbox">
+      <div class="brand-cn kai">東漢食補</div>
+      <div class="brand-en">D O N G H A N &nbsp; S H I B U</div>
+      <div class="brand-tag">漢 方 食 補 ・ 家 常 熟 食</div>
+    </div>
+  </div>
+
+  <h1 class="kai">不用熬四小時，<br><em>滾十分鐘</em>就上桌。</h1>
+  <p class="sub">紅面番鴨・帶皮土羊肉・八味漢方<br>慢火四小時燉出的那一鍋，我們替你封進一包湯裡。</p>
+
+  <div class="seal kai">漢方</div>
+
+  <div class="trust">不加味精 <i></i> 不加防腐劑 <i></i> 每日限量 40 鍋 <i></i> 產地直送</div>
+
+  <div class="hero">
+    <img src="assets/processed/food_mutton_hero.jpg" alt="紅燒羊肉爐">
+  </div>
+
+  <div class="hero-cap">
+    <div class="dish kai">紅燒羊肉爐<small>BRAISED LAMB HOT POT</small></div>
+    <div class="note">帶皮羊肉 Q 彈、湯頭厚而不燥，<br>一家兩口，一鍋剛剛好。</div>
+  </div>
+
+  <div class="band">
+    <div class="item">2 人份</div><div class="sep"></div>
+    <div class="item">加熱 10 分鐘</div><div class="sep"></div>
+    <div class="item">冷凍 －18°C</div><div class="sep"></div>
+    <div class="big kai">八包混搭・免運</div>
+  </div>
+</section>
+
+<!-- ================= 封底 ================= -->
+<section class="sheet" id="back">
+  <div class="frame"></div>
+
+  <div class="back-head">
+    <h2 class="kai">一桌，<span>三種暖</span></h2>
+    <div class="en">THREE POTS / ONE TABLE</div>
+  </div>
+  <div class="rule"></div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="ph"><img src="assets/processed/food_mutton_hd.jpg" alt=""></div>
+      <h3 class="kai">紅燒羊肉爐<small>LAMB</small></h3>
+      <p>精選帶皮土羊肉，肉質 Q 彈。當歸、生薑、枸杞與桂皮慢燉，湯色紅亮、入口溫潤，四季都適合的溫補鍋物。</p>
+      <div class="tags"><i>帶皮羊肉</i><i>微麻油香</i><i>不燥</i></div>
+    </div>
+    <div class="card">
+      <div class="ph"><img src="assets/processed/food_duck_hd.jpg" alt=""></div>
+      <h3 class="kai">薑母鴨<small>GINGER DUCK</small></h3>
+      <p>土產紅面番鴨，老薑與黑麻油爆香，米酒作藥引。湯頭辛香溫厚，加高麗菜、豆皮、米血就是完整一餐。</p>
+      <div class="tags"><i>紅面番鴨</i><i>老薑麻油</i><i>附湯 1,200ml</i></div>
+    </div>
+    <div class="card">
+      <div class="ph"><img src="assets/processed/food_herb_chicken_hd.jpg" alt=""></div>
+      <h3 class="kai">何首烏雞湯<small>HERB CHICKEN</small></h3>
+      <p>何首烏、枸杞與紅棗慢熬湯頭（本品為純湯底、無雞肉塊），湯色沉亮回甘。可自備半隻雞或雞腿肉入鍋同燉，溫補不燥熱。</p>
+      <div class="tags"><i>純湯底・無肉塊</i><i>可加半隻雞／雞腿</i><i>溫補不燥</i></div>
+    </div>
+  </div>
+
+  <div class="how">
+    <div class="how-t kai">三步上桌</div>
+    <div class="steps">
+      <div class="step"><b>1</b><span>冷藏或流水退冰<br>至完全解凍</span></div>
+      <div class="step"><b>2</b><span>倒鍋煮滾<br>小火 8–10 分鐘</span></div>
+      <div class="step"><b>3</b><span>加菜、加麵線<br>上桌開動</span></div>
+    </div>
+  </div>
+
+  <div class="price">
+    <table class="ptable">
+      <tr><th>品項</th><th style="text-align:right">單包</th><th style="text-align:right">3 包</th><th style="text-align:right">8 包成團</th></tr>
+      <tr><td>紅燒羊肉爐</td><td class="n">650</td><td class="n">610</td><td class="n">560</td></tr>
+      <tr><td>薑母鴨</td><td class="n">580</td><td class="n">540</td><td class="n">500</td></tr>
+      <tr class="hl"><td>何首烏雞湯（純湯底・無肉塊）</td><td class="n">330</td><td class="n">300</td><td class="n">260</td></tr>
+    </table>
+    <div class="shipnote">1–7 包宅配 +290　・　8 包可混搭免運　・　來電自取 1 包即享成團價</div>
+  </div>
+
+  <div class="qrwrap">
+    <div class="qr"><img src="assets/qr_placeholder.svg" alt="一頁式網頁 QRcode"></div>
+    <div class="txt">
+      <b class="kai">掃碼看一頁式網頁</b>
+      完整品項・價格・門市與團購資訊一把抓<br>
+      LINE ID：〔待客戶提供〕｜FB 搜尋「東漢食補」
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="row">
+      <div><b>品名</b> 紅燒羊肉爐（冷凍調理食品）<br><b>內容物</b> 羊肉、水、米酒、醬油、冰糖、當歸、生薑、枸杞、桂皮、八角、鹽</div>
+      <div><b>內容量</b> 1,200g（固形量 380g）<br><b>原產地</b> 台灣　<b>保存</b> －18°C 以下 12 個月<br><b>過敏原</b> 本產品含大豆、小麥、酒類製品</div>
+    </div>
+    <div class="dis">本產品為一般食品，非藥品，不具醫療效能。孕婦、慢性病患者及對酒精敏感者請酌量食用。實際成分、營養標示與有效日期依包裝標示為準。</div>
+    <div class="co">東漢食補　新北市新莊區壽山路109-1號　聯絡電話 0989-322-205</div>
+  </div>
+</section>
+
+</body>
+</html>
